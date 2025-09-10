@@ -60,3 +60,7 @@
 ## 지역 저장소와 원격 저장소의 동기화란 무엇인가?
 - git push origin main
 - 로컬과 웹상의 파일과 폴더들을 동일하게 만든다 
+
+## 복제
+- git clone https://github.com/seongdong3/teacher-learning
+- .git도 같이 복사

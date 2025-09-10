@@ -27,3 +27,22 @@
  ## 현재 파일 상태를 출력하는 명령어
  - git status
 
+# gitignore
+## 어떤 파일인가? 역할이 무엇인가?
+ - git 프로젝트에서 특정 파일과 폴더 제외하기
+ - 다른 사용자에게 노출되면 안되는 파일과 폴더를 명시하는 파일
+## .gitignore의 주의사항은 무엇인가?
+ - 한 번 기록(commit)한 파일은 .gitignore 파일에 추가해도 제외되지 않는다
+## gitignore.io는 어떤 서비스인가?
+ - 사용하는 프로그래밍 언어, 기술에 적합한 .gitignore 파일을 자동으로 생성해주는 웹 사이트
+
+# github
+## 원격 저장소 생성, 연결, 동기화
+1. 원격 저장소 생성
+2. 지역 저장소 - 원격 저장소 연결
+- git remote add origin https://github.com/sukyoung14/first.git
+3. 지역 저장소 -> 원격 저장소 Push
+- git push origin main
+4. 원격 저장소 파일 생성
+5. 지역 저장소 <- 원격 저장소 pull
+- git pull origin main

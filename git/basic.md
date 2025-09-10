@@ -46,3 +46,12 @@
 4. 원격 저장소 파일 생성
 5. 지역 저장소 <- 원격 저장소 pull
 - git pull origin main
+
+## git push origin, origin은 무엇인가?
+- `git push <원격저장소명> <브랜치명>` / `git pull <원격저장소명> <브랜치명>`
+- `git remote add <원격저장소명> <원격저장소 주소>`
+- `origin`이라는 원격저장소명은 관습적인 이름
+
+## 원격 저장소란 무엇인가?
+
+## 지역 저장소와 원격 저장소의 구분

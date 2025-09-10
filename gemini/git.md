@@ -1,4 +1,5 @@
 ## Git이란 무엇일까요? 🧐
+- gemini 에서 검색 후 파일 생성해 봄
 
 Git은 **분산 버전 관리 시스템(Distributed Version Control System)**입니다.
 

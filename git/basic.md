@@ -64,3 +64,21 @@
 ## 복제
 - git clone https://github.com/seongdong3/teacher-learning
 - .git도 같이 복사
+
+## 커밋 되돌리기
+- git reset <커밋 해시>
+- push 하기 전에 사용
+- mixed : 커밋과 스테이징 영역을 취소하고, 변경 내용은 작업 트리(Working Tree)에 유지
+
+## git reset은 어떤 명령어인가요?
+- 커밋 되돌린다
+## git reset의 3가지 옵션은 무엇이고, 각각의 의미는 무엇인가요?
+- -soft : 커밋을 취소하고, 변경 내용은 스테이징 영역(Staging Area)에 유지
+- -mixed : 커밋과 스테이징 영역을 취소하고, 변경 내용은 작업 트리(Working Tree)에 유지
+- -hard : 커밋, 스테이징 영역, 작업 트리를 모두 취소, 매우 위험한 작업이니 신중하게 사용해야한다
+
+# git 정리
+## 기억에 남아있는 git에 대한 내용을 모두 아래에 작성해보세요.
+- 실습하다가 잘 안되는 부분은 git push origin main 라는 명령어를 했더니 오류가 났다
+-- commit이 안되어 있어서 오류나는 거임 commit후 git push를 하면 됨
+- gitignore - https://www.toptal.com/developers/gitignore 

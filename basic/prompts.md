@@ -53,3 +53,4 @@ print(f"나와 동생의 나이 차이: {age_difference}살")
 print(f"현재 내 나이: {my_age_current}살")
 print(f"계산된 현재 남동생 나이: {brother_age_current}살")
 ```
+

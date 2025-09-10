@@ -22,6 +22,7 @@
  - git add git/basic.md
  - git add .
  ## 스테이징 영역에 있는 파일을 기록(커밋)하는 명령어
+ - git commit
  - git commit -m "commit ok"
  ## 현재 파일 상태를 출력하는 명령어
  - git status

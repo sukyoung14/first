@@ -26,4 +26,3 @@
  - git commit -m "commit ok"
  ## 현재 파일 상태를 출력하는 명령어
  - git status
-

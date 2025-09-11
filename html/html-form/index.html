@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>form</title>
   </head>
-  <body></body>
+  <body>
+    <form action="#">
+      <!-- placeholder : 안내문구 -->
+      <!-- required 필수값 -->
+      <!-- http://127.0.0.1:5500/html/html-form/index.html?text=test&password=1234&checkbox=1&checkbox=2&radio=2# -->
+      <input type="text" name="text" />
+      <input type="password" name="password" />
+      <!-- <input type="text" value="초기값" placeholder="안내문구" required /> 
+      <input type="password" placeholder="****" />-->
+      <div>
+        <label for="check1">체크박스 1</label>
+        <input type="checkbox" id="check1" name="checkbox" value="1" />
+        <label for="check2">체크박스 2</label>
+        <input type="checkbox" id="check2" name="checkbox" value="2" />
+      </div>
+      <div>
+        <label for="racio1">라디오1</label>
+        <input type="radio" id="radio1" name="radio" value="1" />
+        <label for="racio2">라디오2</label>
+        <input type="radio" id="radio2" name="radio" value="2" />
+      </div>
+      <!-- <div>
+        <input type="file" />
+        <input type="date" />
+        <input type="datetime" />
+        <input type="color" />
+      </div> -->
+      <textarea name="" id=""></textarea>
+      <!-- select과 option , ul과 li의 관계 유사-->
+      <select name="" id="">
+        <option value="">국가</option>
+        <option value="">대한민국</option>
+        <option value="">미국</option>
+        <option value="">중국</option>
+      </select>
+      <br />
+      <br />
+      <input type="submit" value="전송" />
+    </form>
+  </body>
 </html>

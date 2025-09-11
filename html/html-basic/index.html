@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    HTML 문서 기본 구조 만들기 - html 문서에서 !를 치고 엔터를 치면 기본 html 이 만들어진다.<BR>
+  </head>
+  <body>
+    HTML 문서 기본 구조 만들기 - html 문서에서 !를 치고 엔터를 치면 기본 html 이
+    만들어진다.<br />
     <a href="http://naver.com">naver.com</a>
     <h1>마크다운의 #</h1>
     <h2>마크다운의 ##</h2>
@@ -15,10 +16,93 @@
     <h5>마크다운의 #####</h5>
     <h6>마크다운의 #####^</h6>
     <p>일반적인 텍스트(문단)를 표현</p>
-    <a>마크다운의 []()</a><br>
-    <img alt="대체 텍스트" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2aRJR6dWUGsjhkUzKkGp-3787npBEJcJblg&s"><br>
-    ![대체텍스트](이미지경로,source)<br>
-    <br>
-    <hr>
-</body>
+    <a>마크다운의 []()</a><br />
+    <img
+      alt="대체 텍스트"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2aRJR6dWUGsjhkUzKkGp-3787npBEJcJblg&s"
+    /><br />
+    ![대체텍스트](이미지경로,source)<br />
+    <br />
+    <hr />
+    <!-- Ctrl + / -->
+    <!-- id 속성과 class 속성 -->
+    <!-- id 속성은 문서내에서 요소를 구별한 고유한 값(식별자) -->
+    <p id="1">1</p>
+    <p id="2">2</p>
+    <p>3</p>
+    <!-- class 속성은 문서내에서 요소를 그룹화하는 값 -->
+    <p class="1">4</p>
+    <p class="1">4</p>
+    <p class="5">5</p>
+    <p class="5">5</p>
+    <p>6</p>
+    <!-- id와 class의 값은 소문자 알파벳으로 시작 -->
+    <!-- 띄어쓰기가 불가능, - , _ 사용 -->
+    <p class="fruit red">빨간 사과</p>
+    <p class="fruit blue">파란 포도</p>
+    <p class="fruit blue">빨간 강아지</p>
+    <p class="fruit red">파란 고양이</p>
+    <hr />
+    <!-- 요소 중첩 -->
+    <div>
+      division(분할)
+      <h1>팀 버너스리</h1>
+      <h2>Berners-Lee</h2>
+    </div>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Sir_Tim_Berners-Lee.jpg/330px-Sir_Tim_Berners-Lee.jpg"
+    />
+    <div>
+      <p>출생</p>
+      <p>1955년 6월 8일</p>
+    </div>
+    <div>
+      <p>출신 학교</p>
+      <p>옥스퍼드 대학교</p>
+    </div>
+    <div>
+      <p>배우자</p>
+      <p>낸시 칼슨<br />로즈메리 리스</p>
+    </div>
+    <div>
+      <p>자녀</p>
+      <p>1남 1녀</p>
+    </div>
+    <div>
+      <p>수상</p>
+      <p>
+        튜링상<br />메리트 훈장<br />대영 제국 훈장 2등급<br />왕립학회 회원<br />왕립공학학회
+        회원<br />왕립예술학회 회원 <br />영국 컴퓨터학회 최고회원(1995)
+      </p>
+    </div>
+    <div>
+      <p>분야</p>
+      <p>컴퓨터 과학</p>
+    </div>
+    <div>
+      <p>소속</p>
+      <p>W3C<br />사우샘프턴 대학교<br />플레시<br />매사추세츠 공과대학교</p>
+    </div>
+    <hr />
+    <h1>p태그와 span태그</h1>
+    <p>p태그</p>
+    <p>p태그</p>
+    <span>span태그</span>
+    <span>span태그</span>
+    <p>
+      <span>팀 버너스리 경</span>(영어: Sir Tim Berners-Lee, OM, KBE, FRS,
+      1955년 6월 8일 ~ )은 영국의 컴퓨터 과학자이다.
+    </p>
+
+    <!-- ul, ol, li -->
+    <!-- - / 1. 2. -->
+    <ul>
+      <li>순서가 없는 태그 1</li>
+      <li>순서가 없는 태그 2</li>
+    </ul>
+    <ol>
+      <li>순서가 있는 태그 1</li>
+      <li>순서가 있는 태그 2</li>
+    </ol>
+  </body>
 </html>

@@ -14,3 +14,9 @@
 - C:\sesac\learning\html
 - https://github.com/sukyoung14/first/blob/main/html/html-basic/index.html
 - https://github.com/sukyoung14/first/blob/main/html/html-form/index.html
+
+### 2025-09-12
+
+#### CSS
+
+- C:\sesac\learning\css\css-basic

@@ -1,0 +1,62 @@
+.padding-box {
+  /* padding: 0.5rem; */
+  padding-left: 0.8rem;
+  padding-right: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  /* 상우하좌 */
+}
+.border-box {
+  /* 원만한 정도 */
+  border-radius: 2rem;
+  border-color: red;
+  border-width: 10px;
+  border-style: dashed;
+  /* 너비, 종류, 색 */
+  border: 10px dashed red;
+}
+span {
+  margin: 20px;
+}
+.margin-1 {
+  height: 100px;
+  background-color: lightblue;
+  /* 마진중첩에 의해 무시됨 */
+  margin-bottom: 100px;
+}
+.margin-2 {
+  height: 100px;
+  background-color: lightcoral;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+.margin-3 {
+  height: 100px;
+  background-color: lightgreen;
+  /* 마진중첩에 의해 무시됨 */
+  margin-top: 100px;
+}
+/* box-sizing 속성 */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: lightpink;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2rem;
+  padding: 20px;
+}
+.content-box {
+  /* 너비와 높이의 계산을 콘텐츠로만 계산한다 */
+  box-sizing: content-box;
+}
+/* 너비와 높이의 계산을 콘텐츠 + 패딩 + 테두리로 계산한다 */
+.border-box {
+  box-sizing: border-box;
+}
+/* box-sizing 기본값을 변경 */
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}

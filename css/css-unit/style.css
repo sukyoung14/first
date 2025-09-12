@@ -1,0 +1,46 @@
+.parent {
+  background-color: beige;
+  height: 600px;
+}
+.child-1 {
+  background-color: blue;
+  width: 50%;
+  height: 50%;
+}
+.child-2 {
+  background-color: green;
+  width: 25%;
+  height: 300px;
+}
+.parent-font {
+  font-size: 30px;
+}
+.child-font-1 {
+  font-size: 0.5em;
+}
+.child-font-2 {
+  font-size: 2em;
+}
+.child-child-font-2 {
+  font-size: 2em;
+}
+.rem-font-1 {
+  font-size: 0.5rem;
+}
+.rem-font-2 {
+  font-size: rem;
+}
+.full-height {
+  height: 100vh;
+  background-color: lightgreen;
+}
+.parent-div {
+  color: aqua;
+  font-size: 2rem;
+  /* 테두리 : 2px, 검정색 실선 */
+  border: 2px black solid;
+}
+.chile-div {
+  /* 테두리 : 2px, 검정색 실선 */
+  border: 1px blue dashed;
+}

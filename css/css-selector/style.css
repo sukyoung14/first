@@ -1,0 +1,62 @@
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.blue {
+  color: blue;
+}
+.font-100 {
+  font-size: 100px;
+}
+.font-50 {
+  font-size: 50px;
+}
+
+#bold {
+  font-weight: 900;
+}
+
+[href] {
+  font-size: 30px;
+  text-decoration: none;
+}
+[href="https://www.naver.com"]
+{
+  color: green;
+}
+div > p {
+  font-style: italic;
+}
+#parent > .child {
+  color: violet;
+}
+body p {
+  font-weight: 900;
+}
+
+/* 제목 태그들에 같은 스타일 적용 */
+h1,
+h2,
+h3 {
+  color: navy;
+  font-family: Arial, sans-serif;
+}
+/* 혼합 선택자 */
+span.red {
+  color: lightcoral;
+}
+span.green {
+  color: lightgreen;
+}
+
+div {
+  font-size: 30px;
+}
+#font-100 {
+  font-size: 100px;
+}
+.font-90 {
+  font-size: 90px;
+}

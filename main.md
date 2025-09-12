@@ -20,3 +20,6 @@
 #### CSS
 
 - C:\sesac\learning\css\css-basic
+- https://github.com/sukyoung14/first/blob/main/css/css-basic/index.html
+- C:\sesac\learning\css\css-selector
+- https://github.com/sukyoung14/first/blob/main/css/css-selector/index.html

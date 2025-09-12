@@ -1,0 +1,34 @@
+p {
+  color: blue !important;
+}
+p {
+  color: red;
+}
+span {
+  color: blue;
+}
+span {
+  color: red;
+}
+#bold {
+  font-weight: 700;
+  color: black;
+}
+.italic {
+  font-style: italic;
+  color: black;
+}
+
+#c {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+#c {
+  color: green;
+}

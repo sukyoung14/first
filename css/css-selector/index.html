@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- class는 ., id는 # , 태그는 [] -->
+    <!-- 자식은 >, 손자는 ' '  -->
+    <!-- 우선순위는 !important, 인라인, id, clss, tag, 나중에 작성된 코드 순으로 -->
+    <!-- class는 . -->
+    <p class="red font-100">빨강 100</p>
+    <p class="green font-100">초록 100</p>
+    <!-- id는 # -->
+    <p id="bold" class="red font-50">빨강 50 굵게</p>
+    <p class="blue font-50">파랑 50</p>
+
+    <a href="https://www.naver.com">naver</a><br />
+    <a href="https://www.google.com">google</a>
+
+    <div>
+      <p>div의 자식</p>
+      <p>div의 자식</p>
+    </div>
+    <div id="parent">
+      <p class="child">#parent의 자식</p>
+      <p class="child">#parent의 자식</p>
+      <p>#parent의 자식</p>
+    </div>
+
+    <h1>제목 1</h1>
+    <h2>제목 2</h2>
+    <h3>제목 3</h3>
+
+    <span class="red">span 빨강</span>
+    <span class="green">span 초록</span>
+    <a href="https://flukeout.github.io/">css 디너</a>
+    <!-- 형제 -->
+    <!-- 다음에 나오는건 + -->
+    <!-- bento+ -->
+
+    <div id="font-100" class="font-90">현재 우선 순위는?</div>
+  </body>
+</html>

@@ -23,3 +23,10 @@
 - https://github.com/sukyoung14/first/blob/main/css/css-basic/index.html
 - C:\sesac\learning\css\css-selector
 - https://github.com/sukyoung14/first/blob/main/css/css-selector/index.html
+
+### 2025-09-15
+
+#### CSS Flexbox
+
+- C:\sesac\learning\css\css-flexbox
+- https://github.com/sukyoung14/first/blob/main/css/css-flexbox/index.html

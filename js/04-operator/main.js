@@ -23,3 +23,17 @@ console.log(`false || false -> ${falseData || falseData}`);
 // 논리형 데이터가 참이면 거짓(false) 생성
 console.log(`true  -> ${!trueData}`);
 console.log(`false  -> ${!falseData}`);
+
+// 같다 == Vs. === / 다르다 != Vs. !==
+// == / !=
+// 값(데이터)만 비교
+// 서로 다른 자료형을 비교하면 자료형을 동일하게 변환
+const number = 1;
+const str = "1";
+const bool1 = number == str;
+console.log(bool1);
+
+// === / !==
+// 데이터와 데이터의 자료형을 비교
+const bool2 = number === str;
+console.log(bool2);

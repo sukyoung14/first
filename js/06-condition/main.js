@@ -75,3 +75,14 @@ if (score >= 90) {
 } else {
   console.log("E");
 }
+
+// 삼항 연산자 표현식
+// 표현식 : 데이터를 생성하는 코드
+// 조건식은 무조건 참(true) / 거짓(false) 데이터 중 하나를 생성
+// 조건식 ? 조건식 평가 결과가 참이래 데이터 : 조건식 평가 결과가 거짓일 떄 데이터
+const message = 2 > 1 ? "2는 1보다 크다" : "2는 1보다 크지 않다";
+console.log(message);
+
+// 사용자의 로그인 여부
+let isLogined = true;
+const user = isLogined === true ? "회원 사용자 화면" : "비 회원 사용자 화면";

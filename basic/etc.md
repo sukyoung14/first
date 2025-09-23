@@ -156,12 +156,12 @@ Bootstrap 컴포넌트 기반 웹 - https://getbootstrap.com/
 
 ## 2025-09-17
 
-## Code Runner 프로그램 - javascript 실행
+** Code Runner 프로그램 - javascript 실행
 
 ## 2025-09-22
 
--- NPM
--- 프로젝트 초기화
+- NPM
+- 프로젝트 초기화
 npm init -y //터미널 창에서
 npm install -g lodash //-g는 Global # 전역 패키지 설치
 npm install dayjs
@@ -173,4 +173,15 @@ package.json 에
 npm start를 터미널 창에 넣으면 node main.js가 실행된다
 
 ** node_modules 폴더를 git에 올리면 안된다  - .gitignore에 추가해줘야 한다.
- 
+ ## 2025-09-23
+ - JSON Formatter 설치 - https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=ko&utm_source=ext_sidebar&pli=1
+ - JsonPlaceholder - https://jsonplaceholder.typicode.com/
+ - JsonPlaceholder, Web API 호출
+	- 게시글 목록 가져오기
+	- https://jsonplaceholder.typicode.com/posts
+	- 1번 게시글 가져오기
+	- https://jsonplaceholder.typicode.com/posts/1
+	- 사용자 목록 가져오기
+	- https://jsonplaceholder.typicode.com/users
+	- 1번 사용자의 게시글 목록 가져오기
+	- https://jsonplaceholder.typicode.com/posts?userId=1

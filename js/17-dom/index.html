@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="parent"></div>
+    <button>클릭</button>
+    <script>
+      // 밑에 코드는 자바스크립트 파일이 아니라서 코드 작동 X
+      // import axios for 'axios';
+      const DOMAIN_NAME = "https://dummyjson.com";
+
+      // id가 parent인 요소 선택
+      const parentTag = document.querySelector("#parent");
+      // 상품 목록을 요청할 비동기(async)함수
+      async function getProducts() {
+        const config = { url: `${DOMAIN_NAME}/products`, method: "get" };
+        const response = await axios(config);
+        const data = response["data"];
+        const products = data["products"];
+
+        // 배열 고차 메서드를 사용해서 배열 데이터인 products 를 반복
+        products.forEach((element) => {
+          // 상품(element) 정보에서 이름 (title) 속성 추출
+          const title = element["title"];
+          const pTag = document.createElement("p");
+          pTag["textContent"] = title;
+          console.log(pTag["textContent"]);
+          // #parent인 요소에 P 태그 추가(append())
+          parentTag.append(pTag);
+        });
+      }
+
+      async function testConnect() {
+        const config = { url: `${DOMAIN_NAME}/test`, method: "get" };
+        // axios를 활용해서 요청(클라이언트 -> 서버)
+        // 요청에 대한 응답을 변수 response에 저장
+        const response = await axios(config);
+        console.log(response["data"]);
+      }
+      //testConnect();
+      //getProducts();
+
+      // 태그명이 button인 요소의 click 이벤트가 발생했을 때
+      // 함수 getProducts가 호출 코드 작성
+      const buttonTag = document.querySelector("button");
+      buttonTag.addEventListener("click", () => {
+        getProducts();
+      });
+    </script>
+  </body>
+</html>

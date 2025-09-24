@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>클릭</button>
+    <input type="text" />
+    <p id="message"></p>
+    <a href="https://naver.com">네이버</a>
+    <script>
+      const inputTag = document.querySelector("input");
+      const pTag = document.querySelector("#message");
+      inputTag.addEventListener("input", (e) => {
+        // input에 사용자가 입력한 값
+        const value = e["target"]["value"];
+        // 매개변수 event : 이벤트 정보를 저장하는 객체
+        //console.log(e["target"]["value"]);
+        // console.log(e.target.value);
+        // value["length"]가 8 미만이면 P 태그에 "글자가 8글자 미만입니다"
+        // 그런데 value["length"]가 8 이상이면 P 태그에 텍스트를 설정
+        // if (value["length"] < 8)
+        //   pTag["textContent"] = "글자가 8글자 미만입니다";
+        // else pTag["textContent"] = "";
+        pTag["textContent"] =
+          value["length"] < 8 ? "글자가 8글자 미만입니다" : "";
+      });
+      const buttonTag = document.querySelector("button");
+      buttonTag.addEventListener("click", () => {
+        alert("클릭");
+        // const text = buttonTag["textContent"];
+        // alert(text);
+      });
+      buttonTag.addEventListener("click", (event) => {
+        // 이벤트가 발생한 요소
+        console.log(event.target);
+        // 이벤트 종류
+        console.log(event.type);
+      });
+      // 변수 link에 addEventListener()를 사용해서 click 이벤트 핸들러 함수를 지정
+      const link = document.querySelector("a");
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

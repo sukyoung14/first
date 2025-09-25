@@ -187,5 +187,6 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
 	- 1번 사용자의 게시글 목록 가져오기
 	- https://jsonplaceholder.typicode.com/posts?userId=1
 
- ## 2025-09-24
+ ## 2025-09-25
+ - const random = Math.floor(Math.random() * 10);			--랜덤 숫자 가져오기 -- 0~10
  

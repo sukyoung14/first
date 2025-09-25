@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form" action="">
+      <!-- <input type="email" name="email" /> -->
+      <input type="password" name="password" />
+      <input type="password" name="password-confirm" />
+      <input type="submit" value="" />
+    </form>
+    <script>
+      const formTag = document.querySelector("#form");
+      formTag.addEventListener("submit", (e) => {
+        // 기본 동작(이벤트) 막기
+        event.preventDefault();
+
+        //console.log(formTag["elements"]["password"]["value"]); // password 입력 요소의 객체 입력 값
+        //console.log("제출");
+
+        if (
+          formTag["elements"]["password"]["value"] ===
+          formTag["elements"]["password-confirm"]["value"]
+        )
+          console.log("같습니다");
+        else console.log("다릅니다");
+      });
+    </script>
+  </body>
+</html>

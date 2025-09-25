@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>조회</button>
+    <button id="delete">삭제</button>
+    <script>
+      // 로컬 스토리지에 데이터를 저장할 때 객체{key:value} 형태로 저장
+      localStorage.setItem("key", "value");
+      localStorage.setItem("키", "값");
+      localStorage.setItem("저녁", "도시락");
+
+      // 버튼 선택
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", (e) => {
+        const data = localStorage.getItem("저녁");
+        alert(data);
+      });
+
+      const deleteButton = document.querySelector("delete");
+
+      button.addEventListener("click", (e) => {
+        localStorage.removeItem("저녁");
+      });
+    </script>
+  </body>
+</html>

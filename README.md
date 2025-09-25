@@ -17,4 +17,5 @@
 - 2025-09-18 : JavaScript 배열 객체
 - 2025-09-22 : JavaScript 콜백함수
 - 2025-09-23 : JavaScript axios
-- 2025-09-23 : JavaScript DOM
+- 2025-09-24 : JavaScript DOM
+- 2025-09-25 : JavaScript 이벤트 전파

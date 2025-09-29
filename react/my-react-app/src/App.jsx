@@ -9,6 +9,9 @@ import MyList from "./components/Component/MyList";
 import OnClick from "./components/Component/EventHandling/OnClick";
 import OnChange from "./components/Component/EventHandling/OnChange";
 import OnSubmit from "./components/Component/EventHandling/OnSubmit";
+import Parent from "./components/Component/Props/Parent";
+import ProfileContainer from "./components/Component/PropsExample/ProfileContainer";
+import CardContainer from "./components/Component/Props/CardContainer";
 // 파일명과 동일한 함수는 컴포넌트 함수
 // 컴포넌트 함수는 파일당 하나만 존재
 // 컴포넌트 함수 외부는 import 문만 사용
@@ -18,14 +21,7 @@ export default function App() {
   // 영역 2. 태그 (HTML 문서)를 생성하는 영역
   return (
     <div>
-      <OnClick></OnClick>
-      {/* <OnChange></OnChange> */}
-      {/* <OnSubmit></OnSubmit> */}
-      {/* <Header></Header> */}
-      {/* <Interpolation></Interpolation> */}
-      {/* <MyList /> */}
-      {/* <MyButton /> */}
-      {/* <Footer></Footer> */}
+      <CardContainer></CardContainer>
     </div>
   );
 }

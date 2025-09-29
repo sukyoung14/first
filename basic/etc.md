@@ -233,3 +233,8 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
  - 확장 프로그램
 	- ES7+ React/Redux/React-Native snippets 설치 -> rfc 사용가능
 	- Material Icon Theme -> 폴더를 아이콘으로 변경
+	- Tailwind CSS IntelliSense
+	
+ ## 2025-09-29
+ - 크롬 확장 프로그램
+	- React Developer Tools

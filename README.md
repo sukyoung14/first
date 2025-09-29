@@ -19,4 +19,5 @@
 - 2025-09-23 : JavaScript axios
 - 2025-09-24 : JavaScript DOM
 - 2025-09-25 : JavaScript 이벤트 전파
-- 2025-09-26 : JavaScript React
+- 2025-09-26 : JavaScript & React
+- 2025-09-29 : React 이벤트 핸들링

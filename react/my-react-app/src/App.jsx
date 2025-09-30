@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "./components/Component/Condition/Container";
+import Container from "./components/Component/List/Container";
 // 파일명과 동일한 함수는 컴포넌트 함수
 // 컴포넌트 함수는 파일당 하나만 존재
 // 컴포넌트 함수 외부는 import 문만 사용

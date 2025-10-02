@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "./components/UseEffect/Container";
+import MovieDetail from "./components/TMDB/MovieDetail";
 // 파일명과 동일한 함수는 컴포넌트 함수
 // 컴포넌트 함수는 파일당 하나만 존재
 // 컴포넌트 함수 외부는 import 문만 사용
@@ -11,7 +11,7 @@ export default function App() {
   // 컴포넌트명는 항상 대문자로 시작해야 함 - 대문자가 아니면 컴포넌트로 인식 못함
   return (
     <div>
-      <Container></Container>
+      <MovieDetail></MovieDetail>
     </div>
   );
 }

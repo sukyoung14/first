@@ -24,7 +24,7 @@ export default function Product({ product }) {
 
   return (
     <div style={cardStyle}>
-      <p style={titleStyle}>{product.title}</p>
+      <p style={titleStyle}></p>
       <p style={descriptionStyle}>{product.description}</p>
     </div>
   );

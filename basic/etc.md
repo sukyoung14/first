@@ -237,4 +237,7 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
 	
  ## 2025-09-29
  - 크롬 확장 프로그램
-	- React Developer Tools
+	- React Developer Tools	
+ 
+ ## 2025-10-13
+ 

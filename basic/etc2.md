@@ -18,17 +18,19 @@
 - padding: 내부 여백
 
 # Tailwind CSS
-
+- cursor-pointer - 손모양
 # 자바스크립트
-
+ 
  - axios
 ``` 
-import axios from "axios";
-async function getProducts() {
-      const response = await axios("https://dummyjson.com/products");
+	import axios from "axios";
+	const BASE_URL = `https://dummyjson.com`;
+	async function getProducts() {
+	const response = await axios.get(`${BASE_URL}/products`);
       const data = response["data"];
       console.log(data);
     }
+getProducts();
 ```
 
 # 리액트
@@ -60,3 +62,43 @@ async function getProducts() {
         return <Product key={product.id} product={product}></Product>;
       })}
 ```
+- TMDB 
+	- .env : config 파일(환경변수)
+	- VITE_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZTI5NzE3MjY4NjMzYjE4YmVlZTk3Yzg3YzBjMDQ1NSIsIm5iZiI6MTU2ODg3Njk5MS4wMSwic3ViIjoiNWQ4MzI5YmYxNjJiYzMwMjI3ZGRmY2Q2Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.K4Rfgg3rBpZHzkWitF3lASxkW7LXnd2nZFDkzmb3e5c
+```
+const BASE_URL = `https://api.themoviedb.org/3`;
+const API_KEY = import.meta.env["VITE_TMDB_API_KEY"];
+const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const config = {
+        method: "GET",
+        url: `${BASE_URL}/movie/popular`,
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        params: {
+          language: "ko-KR",
+          page: 1,
+        },
+      };
+
+      const res = await axios(config);
+      setMovies(res["data"]["results"]);
+    }
+
+    fetchData();
+  }, []);
+  {movies.map((movie) => (
+          <li key={movie.id}>{movie.title}</li>
+        ))}
+  ```
+  - import axios from "."; // . 은 index를 가지고 온다는 의미
+  - export default axiosInstance;		// 한개만 내보내기
+  - export { axiosInstance, axiosInstance2 };	// 여러개 내보내기
+  - export는 함수 앞에 써도 됨
+  ```export async function getPopularMovies() {}
+  import { getPopularMovies } from "./../../api/tmdb";```

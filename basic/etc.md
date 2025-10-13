@@ -191,6 +191,8 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
  - const random = Math.floor(Math.random() * 10);			--랜덤 숫자 가져오기 -- 0~10
  
  ## 2025-09-26
+ - react 프로젝트 생성
+	- https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-8033-88be-f690dd17a23f
  - rm -rf my-react-app/     // - rm : 특정 폴더(디렉토리)를 강제로 삭제하는명령어, -rf 폴더와 그 안의 모든 내용
 
  - Vite 기반 React 프로젝트 생성
@@ -220,7 +222,7 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
 	npm run build
 	- 번들링 - 웹 개발에서 여러 파일(JS, CSS, 이미지 등)을 하나 또는 소수의 파일로 묶는 작업
 	dist 폴더 가 생성 
-- my-react-app 폴더
+- my-react-app 폴더	
 	- public 폴더 - 이미지나 글꼴 파일 등등->변형되지 않음
 	- eslint.config.js -- 문법검사
 	- vite.config.js -- 설정파일
@@ -229,7 +231,23 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
 	- package-lock.json : 정확한 패키지
 	- src 폴더 - source라고 부름
 		- assets 폴더 : 이미지나 글꼴 파일 등등 -> 변형됨
- - Tailwind CSS 설치
+ - Tailwind CSS 설치 --- https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-801d-ac76-ef9b142d691c
+	- npm install tailwindcss @tailwindcss/vite
+	- Vite 설정 파일 vite.config.js 수정
+		```// vite.config.js
+		import { defineConfig } from "vite";
+		import react from "@vitejs/plugin-react";
+		import tailwindcss from "@tailwindcss/vite";
+
+		// <https://vite.dev/config/>
+		export default defineConfig({
+		  plugins: [react(), tailwindcss()],
+		});
+		```
+	- src/index.css 파일 수정
+		1. src/index.css 파일 기존 코드 모두 삭제
+		2. tailwindcss 불러오기
+		``` @import "tailwindcss"; ```
  - 확장 프로그램
 	- ES7+ React/Redux/React-Native snippets 설치 -> rfc 사용가능
 	- Material Icon Theme -> 폴더를 아이콘으로 변경
@@ -240,4 +258,6 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
 	- React Developer Tools	
  
  ## 2025-10-13
- 
+  ### react router 버전 7 설치
+	``` npm install react-router-dom@^7 ```
+ - createBrowerRouter 함수

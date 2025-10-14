@@ -1,6 +1,6 @@
 # 공통
 
- - 길이 : length
+ - 길이 : length  <!--변수명.length-->
  - 카멜케이스 : 속성명의 첫 글자를 소문자로 작성하고, 나머지 단어의 첫 글자를 대문자로 작성하는 방법
 
 # HTML
@@ -11,7 +11,9 @@
 	1. 태그 : 요소의 기능을 나타내고 시작 태그 <>와 종료 태그 </>로 구성된다
 	2. 속성 : 요소의 추가 특성을 나타내고, 시작 태그 내부에 작성한다.
 	3. 내용 : 화면에 표시할 텍스트 또는 또 다른 요소를 작성한다. 
- 
+ - HTML 속성 중 class 속성의 역할 : 요소를 그룹화하기 위해 사용
+ - JavaScript 원시 자료형 중 기본 자료형 3개
+	String Number Boolean
 # CSS
 
 - font-weight : b태그 - 굵기 지정
@@ -148,4 +150,7 @@ export default router;	```
  const navigate = useNavigate();
  <button onClick={() => navigate("/about")}>소개 페이지</button>
  ```
- 
+ - 상태로 관리하는것과 쿼리 파라미터의 차이점
+ useState 는 주소창에 나타나지 않고 쿼리 파라미터는 주소창에 나타난다.
+ -  ?? "" : Nullish 연산자
+ ``` const order = searchParams.get("order") ?? "asc";  ```

@@ -148,4 +148,25 @@ export default router;	```
  const navigate = useNavigate();
  <button onClick={() => navigate("/about")}>소개 페이지</button>
  ```
- 
+ ### 초기화, 이전페이지, 다음페이지
+ ```
+	 onClick={() => { setSearchParams({});}}		// 초기화
+	 onClick={() => {			//이전페이지
+            if (Number(skip) - 5 >= 0) {
+              setSearchParams({
+                skip: Number(skip) - 5,
+                order,
+                sortBy,
+              });
+            }
+          }}
+		  
+	onClick={() => {
+            if (Number(skip) + 5 <= total) {
+              setSearchParams((searchParams) => {
+                searchParams.set("skip", Number(skip) + 5);
+                return searchParams;
+              });
+            }
+          }}
+ ```

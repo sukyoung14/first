@@ -1,13 +1,17 @@
 # 공통
 
-- 길이 : length
-- 카멜케이스 : 속성명의 첫 글자를 소문자로 작성하고, 나머지 단어의 첫 글자를 대문자로 작성하는 방법
+ - 길이 : length
+ - 카멜케이스 : 속성명의 첫 글자를 소문자로 작성하고, 나머지 단어의 첫 글자를 대문자로 작성하는 방법
 
 # HTML
 
-- <input> 태그의 placeholder 속성 : 사용자가 아무것도 입력하지 않았을 때 임시로 나타나는 회색 글씨
-- <input> 태그의 required 속성 : 필수입력
-
+ - <input> 태그의 placeholder 속성 : 사용자가 아무것도 입력하지 않았을 때 임시로 나타나는 회색 글씨
+ - <input> 태그의 required 속성 : 필수입력
+ - HTML 요소를 구성하는 태그, 속성, 컨텐츠
+	1. 태그 : 요소의 기능을 나타내고 시작 태그 <>와 종료 태그 </>로 구성된다
+	2. 속성 : 요소의 추가 특성을 나타내고, 시작 태그 내부에 작성한다.
+	3. 내용 : 화면에 표시할 텍스트 또는 또 다른 요소를 작성한다. 
+ 
 # CSS
 
 - font-weight : b태그 - 굵기 지정
@@ -20,8 +24,10 @@
 # Tailwind CSS
 - cursor-pointer - 손모양
 # 자바스크립트
+ - 터미널에서 실행 : node 파일명
+
  
- - axios
+ ##  axios
 ``` 
 	import axios from "axios";
 	const BASE_URL = `https://dummyjson.com`;
@@ -35,9 +41,9 @@ getProducts();
 
 # 리액트
 
-- JSX 보간법 : {}
-- 명명 규칙 : handle
-- 컴포넌트 : import MyList from "./components/Component/MyList"; MyList명은 대문자로 시작해야 한다.
+ ##  JSX 보간법 : {}
+ ##  명명 규칙 : handle
+ ##  컴포넌트 : import MyList from "./components/Component/MyList"; MyList명은 대문자로 시작해야 한다.
 - ```event 함수에서 value 값
   const elements = event["target"]["elements"];
    const { email, password, name } = elements;
@@ -45,16 +51,16 @@ getProducts();
   ```
   ``` console.log(`이름 입력 값: ${event["target"]["value"]}`);  ```
 -     event.preventDefault(); - onSubmit에서 멈추는
-- Props
+ ##  Props
   - 함수 전달: onClick={handleClick} 소괄호 없음
   - 함수 호출: onClick={() => onClick()} 소괄호 있음
-- useState, useEffect
+ ##  useState, useEffect
 ```
 	import { useEffect, useState } from "react";
 	  const [data, setData] = useState([]); 
 	useEffect(() => {}, []); //빈 의존성 배열 : 컴포넌트가 첫 랜더링될때만 콜백함수가 실행
 ```
-- map
+ ##  map
 ```
 	{products.map((product) => {
         // 매개변수 product를 Product 컴포넌트에 Props로 전달
@@ -62,7 +68,7 @@ getProducts();
         return <Product key={product.id} product={product}></Product>;
       })}
 ```
-- TMDB 
+ ## TMDB 
 	- .env : config 파일(환경변수)
 	- VITE_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZTI5NzE3MjY4NjMzYjE4YmVlZTk3Yzg3YzBjMDQ1NSIsIm5iZiI6MTU2ODg3Njk5MS4wMSwic3ViIjoiNWQ4MzI5YmYxNjJiYzMwMjI3ZGRmY2Q2Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.K4Rfgg3rBpZHzkWitF3lASxkW7LXnd2nZFDkzmb3e5c
 ```
@@ -86,7 +92,7 @@ const [movies, setMovies] = useState([]);
         },
       };
 
-      const res = await axios(config);
+      const res = await axios(config);/ㄹ567ㄹ
       setMovies(res["data"]["results"]);
     }
 
@@ -102,3 +108,44 @@ const [movies, setMovies] = useState([]);
   - export는 함수 앞에 써도 됨
   ```export async function getPopularMovies() {}
   import { getPopularMovies } from "./../../api/tmdb";```
+ ## 라우터(router)
+ - src/router/index.js 파일에
+ ```	import { createBrowserRouter } from "react-router-dom";	
+ const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Home,
+  },
+  {
+    path: "/about",
+    Component: About,
+  },
+]);
+
+// 라우터 내보내기
+export default router;	```
+ ### Link 
+	``` import { Link } from "react-router-dom";
+	<Link to="/about">소개</Link> ```
+ ### NavLink	
+ - 현재 URL과 to 속성이 일치하는지 판단 
+ - end 사용
+ ``` className={({ isActive }) => (isActive ? activeStyle : "")} ```
+ ### Navigate
+ - 즉시 다른 페이지로 이동시킬 때 사용한다(리다이렉트) ex) 로그인
+ - replace 속성: 히스토리에 남기지 않아서 사용자가 뒤로가기 버튼으로 이전 페이지로 돌아갈 수 없다
+ ```
+ import { Navigate } from "react-router-dom";
+  if (!isLoggedIn) {
+    return <Navigate to="/login" replace />;
+  }
+  return <div>...</div>;
+ ```
+ ### useNavigate() 훅
+ - 이벤트 핸들러 또는 useEffect 훅 내부에서 특정 로직 실행 후 페이지를 이동할 때 사용
+ ```
+ import { useNavigate } from "react-router-dom";
+ const navigate = useNavigate();
+ <button onClick={() => navigate("/about")}>소개 페이지</button>
+ ```
+ 

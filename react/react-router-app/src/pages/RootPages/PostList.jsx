@@ -67,7 +67,7 @@ export default function PostList() {
         return (
           <div key={post.id}>
             {/* <Link to={`/posts/${post.id}`}> */}
-            <Link to={PATHS.AUTH.getPosts(post.id)}>
+            <Link to={PATHS.ROOT.getPostDetail(post.id)}>
               No. {post.id} - {post.title}
             </Link>
             <br />

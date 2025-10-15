@@ -1,6 +1,7 @@
 # 공통
 
- - 길이 : length
+ - 길이 : length  <!--변수명.length-->
+ - 형변환 : Number("1")  <!--숫자형-->
  - 카멜케이스 : 속성명의 첫 글자를 소문자로 작성하고, 나머지 단어의 첫 글자를 대문자로 작성하는 방법
 
 # HTML
@@ -11,7 +12,9 @@
 	1. 태그 : 요소의 기능을 나타내고 시작 태그 <>와 종료 태그 </>로 구성된다
 	2. 속성 : 요소의 추가 특성을 나타내고, 시작 태그 내부에 작성한다.
 	3. 내용 : 화면에 표시할 텍스트 또는 또 다른 요소를 작성한다. 
- 
+ ```onChange={(e) => {
+          setPayload(e.target.value);
+        }}```
 # CSS
 
 - font-weight : b태그 - 굵기 지정
@@ -108,7 +111,10 @@ const [movies, setMovies] = useState([]);
   - export는 함수 앞에 써도 됨
   ```export async function getPopularMovies() {}
   import { getPopularMovies } from "./../../api/tmdb";```
- ## 라우터(router)
+ ## 라우터(React Router)
+ ### React Router 설치
+ - react router 버전 7 설치
+ ```npm install react-router-dom@^7```
  - src/router/index.js 파일에
  ```	import { createBrowserRouter } from "react-router-dom";	
  const router = createBrowserRouter([
@@ -123,7 +129,22 @@ const [movies, setMovies] = useState([]);
 ]);
 
 // 라우터 내보내기
-export default router;	```
+export default router;	```	
+ - RouterProvider 컴포넌트 적용
+ - src/main.jsx 파일에 
+ ```
+ import { StrictMode } from "react";
+ import { createRoot } from "react-dom/client";
+ import { RouterProvider } from "react-router-dom";
+ import router from "./router";
+ import "./index.css";
+ 
+ createRoot(document.getElementById("root")).render(
+   <StrictMode>
+     <RouterProvider router={router} />
+   </StrictMode>
+ );
+```
  ### Link 
 	``` import { Link } from "react-router-dom";
 	<Link to="/about">소개</Link> ```
@@ -148,6 +169,10 @@ export default router;	```
  const navigate = useNavigate();
  <button onClick={() => navigate("/about")}>소개 페이지</button>
  ```
+ - 상태로 관리하는것과 쿼리 파라미터의 차이점
+ useState 는 주소창에 나타나지 않고 쿼리 파라미터는 주소창에 나타난다.
+ -  ?? "" : Nullish 연산자
+ ``` const order = searchParams.get("order") ?? "asc";  ```
  ### 초기화, 이전페이지, 다음페이지
  ```
 	 onClick={() => { setSearchParams({});}}		// 초기화
@@ -170,3 +195,9 @@ export default router;	```
             }
           }}
  ```
+  ## Redux 
+  ### Redux Toolkit
+ - https://redux-toolkit.js.org/
+ ### edux, redux-toolkit 설치
+ npm install react-redux
+npm install @reduxjs/toolkit

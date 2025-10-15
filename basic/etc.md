@@ -261,3 +261,8 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
   ### react router 버전 7 설치
 	``` npm install react-router-dom@^7 ```
  - createBrowerRouter 함수
+ ## 2025-10-15
+ ### Redux 상태값을 확인하는 확장프로그램
+ 크롬 확장프로그램  >  Redux DevTools 설치 
+ ### 사용자 인증(Authentication)
+	- JWT(JSON Web Token) - https://www.jwt.io/ (JWT 인코더/디코더 서비스)

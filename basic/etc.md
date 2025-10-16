@@ -292,6 +292,7 @@ const SUPABASE_ANON_KEY =
 ### Gemini API Key 발급 - https://aistudio.google.com/app/api-keys
 
 Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
+## 2025-10-16
 
 ###
 

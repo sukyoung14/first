@@ -4,6 +4,7 @@
 
 ---
 
+ysk8104@naver.com / 12341234
 ssukyoung14@gmail.com/qlalfqjsgh1@
 https://github.com/ ssukyoung14@gmail.com/qlalfqjsgh1@@@
 qlalfqjsgh1@@@
@@ -85,12 +86,14 @@ gemini CLI
 ---
 
 ## 2025-09-10
+
 gitignore - https://www.toptal.com/developers/gitignore
 강사님 - https://github.com/seongdong3/teacher-learning
 
 ---
 
 ## 2025-09-11
+
 HTML 문서 기본 구조 만들기 - html 문서에서 !를 치고 엔터를 치면 기본 html 이 만들어진다.
 Visual Studio Code 에서 설정장 열기 아래내용 추가
 ,
@@ -156,117 +159,140 @@ Bootstrap 컴포넌트 기반 웹 - https://getbootstrap.com/
 
 ## 2025-09-17
 
-** Code Runner 프로그램 - javascript 실행
+\*\* Code Runner 프로그램 - javascript 실행
 
 ## 2025-09-22
 
 - NPM
 - 프로젝트 초기화
-npm init -y //터미널 창에서
-npm install -g lodash //-g는 Global # 전역 패키지 설치
-npm install dayjs
-npm install // package.json, package-lock.json 을 읽어서 자동으로 패키지 설치
-자바스크립스 축소 - https://www.minifier.org/
-package.json 에
-"test": "echo \"Error: no test specified\" && exit 1" -- 지우고
-"start" : "node main.js" 입력
-npm start를 터미널 창에 넣으면 node main.js가 실행된다
+  npm init -y //터미널 창에서
+  npm install -g lodash //-g는 Global # 전역 패키지 설치
+  npm install dayjs
+  npm install // package.json, package-lock.json 을 읽어서 자동으로 패키지 설치
+  자바스크립스 축소 - https://www.minifier.org/
+  package.json 에
+  "test": "echo \"Error: no test specified\" && exit 1" -- 지우고
+  "start" : "node main.js" 입력
+  npm start를 터미널 창에 넣으면 node main.js가 실행된다
 
-** node_modules 폴더를 git에 올리면 안된다  - .gitignore에 추가해줘야 한다.
+\*\* node_modules 폴더를 git에 올리면 안된다 - .gitignore에 추가해줘야 한다.
 
- ## 2025-09-23
- - JSON Formatter 설치 - https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=ko&utm_source=ext_sidebar&pli=1
- - JsonPlaceholder - https://jsonplaceholder.typicode.com/
- - JsonPlaceholder, Web API 호출
-	- 게시글 목록 가져오기
-	- https://jsonplaceholder.typicode.com/posts
-	- 1번 게시글 가져오기
-	- https://jsonplaceholder.typicode.com/posts/1
-	- 사용자 목록 가져오기
-	- https://jsonplaceholder.typicode.com/users
-	- 1번 사용자의 게시글 목록 가져오기
-	- https://jsonplaceholder.typicode.com/posts?userId=1
+## 2025-09-23
 
- ## 2025-09-25
- - const random = Math.floor(Math.random() * 10);			--랜덤 숫자 가져오기 -- 0~10
- 
- ## 2025-09-26
- - react 프로젝트 생성
-	- https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-8033-88be-f690dd17a23f
- - rm -rf my-react-app/     // - rm : 특정 폴더(디렉토리)를 강제로 삭제하는명령어, -rf 폴더와 그 안의 모든 내용
+- JSON Formatter 설치 - https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=ko&utm_source=ext_sidebar&pli=1
+- JsonPlaceholder - https://jsonplaceholder.typicode.com/
+- JsonPlaceholder, Web API 호출
+  - 게시글 목록 가져오기
+  - https://jsonplaceholder.typicode.com/posts
+  - 1번 게시글 가져오기
+  - https://jsonplaceholder.typicode.com/posts/1
+  - 사용자 목록 가져오기
+  - https://jsonplaceholder.typicode.com/users
+  - 1번 사용자의 게시글 목록 가져오기
+  - https://jsonplaceholder.typicode.com/posts?userId=1
 
- - Vite 기반 React 프로젝트 생성
-	1. 터미널 명령어 입력
-	npm create vite@latest my-react-app -- --template react
-	2. 설치 진행 동의 메세지 출력 확인
-	Need to install the following packages:
-	create-vite@...
-	Ok to proceed? (y)
-	3. 메세지에 대해 y 입력
+## 2025-09-25
+
+- const random = Math.floor(Math.random() \* 10); --랜덤 숫자 가져오기 -- 0~10
+
+## 2025-09-26
+
+- react 프로젝트 생성
+  - https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-8033-88be-f690dd17a23f
+- rm -rf my-react-app/ // - rm : 특정 폴더(디렉토리)를 강제로 삭제하는명령어, -rf 폴더와 그 안의 모든 내용
+
+- Vite 기반 React 프로젝트 생성
+  1.  터미널 명령어 입력
+      npm create vite@latest my-react-app -- --template react
+  2.  설치 진행 동의 메세지 출력 확인
+      Need to install the following packages:
+      create-vite@...
+      Ok to proceed? (y)
+  3.  메세지에 대해 y 입력
 - 패키지 설치
-	1. 프로젝트 경로로 이동
-	# cd {프로젝트 이름}
-	cd my-react-app
-	2. 패키지 설치
-	npm install
+  1.  프로젝트 경로로 이동
+  # cd {프로젝트 이름}
+  cd my-react-app 2. 패키지 설치
+  npm install
 - 개발 서버 실행
-	1. 개발 서버 실행 명령어 입력
-	npm run dev
-	2. 개발 서버 실행 시 출력되는 메시지 확인
-	➜  Local:   <http://localhost:5173/>
-	➜  Network: use --host to expose
-	➜  press h + enter to show help
-	3. 브라우저로 http://localhost:5173/ 접속
-	
+  1.  개발 서버 실행 명령어 입력
+      npm run dev
+  2.  개발 서버 실행 시 출력되는 메시지 확인
+      ➜ Local: <http://localhost:5173/>
+      ➜ Network: use --host to expose
+      ➜ press h + enter to show help
+  3.  브라우저로 http://localhost:5173/ 접속
 - 프로덕션 파일 빌드
-	npm run build
-	- 번들링 - 웹 개발에서 여러 파일(JS, CSS, 이미지 등)을 하나 또는 소수의 파일로 묶는 작업
-	dist 폴더 가 생성 
-- my-react-app 폴더	
-	- public 폴더 - 이미지나 글꼴 파일 등등->변형되지 않음
-	- eslint.config.js -- 문법검사
-	- vite.config.js -- 설정파일
-	- package.json : 패키지 관련된 파일 -  개발에만 사용하는 코드 devDependencies(npm run build 했을때는 포함되지 않음)
-		"^19.1.9", - ^은 19.1.9이상의 버젼이 된다는 의미
-	- package-lock.json : 정확한 패키지
-	- src 폴더 - source라고 부름
-		- assets 폴더 : 이미지나 글꼴 파일 등등 -> 변형됨
- - Tailwind CSS 설치 --- https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-801d-ac76-ef9b142d691c
-	- npm install tailwindcss @tailwindcss/vite
-	- Vite 설정 파일 vite.config.js 수정
-		```// vite.config.js
-		import { defineConfig } from "vite";
-		import react from "@vitejs/plugin-react";
-		import tailwindcss from "@tailwindcss/vite";
+  npm run build
+  - 번들링 - 웹 개발에서 여러 파일(JS, CSS, 이미지 등)을 하나 또는 소수의 파일로 묶는 작업
+    dist 폴더 가 생성
+- my-react-app 폴더
+  - public 폴더 - 이미지나 글꼴 파일 등등->변형되지 않음
+  - eslint.config.js -- 문법검사
+  - vite.config.js -- 설정파일
+  - package.json : 패키지 관련된 파일 - 개발에만 사용하는 코드 devDependencies(npm run build 했을때는 포함되지 않음)
+    "^19.1.9", - ^은 19.1.9이상의 버젼이 된다는 의미
+  - package-lock.json : 정확한 패키지
+  - src 폴더 - source라고 부름
+    - assets 폴더 : 이미지나 글꼴 파일 등등 -> 변형됨
+- Tailwind CSS 설치 --- https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/279611ac-3a00-801d-ac76-ef9b142d691c
 
-		// <https://vite.dev/config/>
-		export default defineConfig({
-		  plugins: [react(), tailwindcss()],
-		});
-		```
-	- src/index.css 파일 수정
-		1. src/index.css 파일 기존 코드 모두 삭제
-		2. tailwindcss 불러오기
-		``` @import "tailwindcss"; ```
- - 확장 프로그램
-	- ES7+ React/Redux/React-Native snippets 설치 -> rfc 사용가능
-	- Material Icon Theme -> 폴더를 아이콘으로 변경
-	- Tailwind CSS IntelliSense
-	
- ## 2025-09-29
- - 크롬 확장 프로그램
-	- React Developer Tools	
- 
- ## 2025-10-13
-  ### react router 버전 7 설치
-	``` npm install react-router-dom@^7 ```
- - createBrowerRouter 함수
- ## 2025-10-15
- ### Redux 상태값을 확인하는 확장프로그램
- 크롬 확장프로그램  >  Redux DevTools 설치 
- ### 사용자 인증(Authentication)
-	- JWT(JSON Web Token) - https://www.jwt.io/ (JWT 인코더/디코더 서비스)
-	- supabase (예제 서버)
-	const SUPABASE_URL = "https://jfsjmxtokcazzpykrxwp.supabase.co";
+  - npm install tailwindcss @tailwindcss/vite
+  - Vite 설정 파일 vite.config.js 수정
+
+    ```// vite.config.js
+    import { defineConfig } from "vite";
+    import react from "@vitejs/plugin-react";
+    import tailwindcss from "@tailwindcss/vite";
+
+    // <https://vite.dev/config/>
+    export default defineConfig({
+      plugins: [react(), tailwindcss()],
+    });
+    ```
+
+  - src/index.css 파일 수정
+    1. src/index.css 파일 기존 코드 모두 삭제
+    2. tailwindcss 불러오기
+       `@import "tailwindcss";`
+
+- 확장 프로그램
+  - ES7+ React/Redux/React-Native snippets 설치 -> rfc 사용가능
+  - Material Icon Theme -> 폴더를 아이콘으로 변경
+  - Tailwind CSS IntelliSense
+
+## 2025-09-29
+
+- 크롬 확장 프로그램
+  - React Developer Tools
+
+## 2025-10-13
+
+### react router 버전 7 설치
+
+    ``` npm install react-router-dom@^7 ```
+
+- createBrowerRouter 함수
+
+## 2025-10-15
+
+### Redux 상태값을 확인하는 확장프로그램
+
+크롬 확장프로그램 > Redux DevTools 설치
+
+### 사용자 인증(Authentication)
+
+    - JWT(JSON Web Token) - https://www.jwt.io/ (JWT 인코더/디코더 서비스)
+    - supabase (예제 서버)
+    const SUPABASE_URL = "https://jfsjmxtokcazzpykrxwp.supabase.co";
+
 const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc2pteHRva2NhenpweWtyeHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyMDE4NjksImV4cCI6MjA3NTc3Nzg2OX0.n-IAryEgUti5atr30MGszQ-fzStuW3BZDRMuaPPIefw";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc2pteHRva2NhenpweWtyeHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyMDE4NjksImV4cCI6MjA3NTc3Nzg2OX0.n-IAryEgUti5atr30MGszQ-fzStuW3BZDRMuaPPIefw";
+
+### Gemini API Key 발급 - https://aistudio.google.com/app/api-keys
+
+Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
+
+###
+
+    ``` npm install react-markdown remark-gfm	```

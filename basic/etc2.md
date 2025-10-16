@@ -28,9 +28,14 @@
 - cursor-pointer - 손모양
 # 자바스크립트
  - 터미널에서 실행 : node 파일명
-
+ - 구조 분해 할당 : 배열이나 객체의 값을 쉽게 추출해서 변수에 할당
  
  ##  axios
+ npm install axios 
+ - package.json 추가 작성
+ {
+  "type": "module"
+}
 ``` 
 	import axios from "axios";
 	const BASE_URL = `https://dummyjson.com`;
@@ -53,7 +58,7 @@ getProducts();
   console.log(`이름 입력 값: ${name["value"]}`);
   ```
   ``` console.log(`이름 입력 값: ${event["target"]["value"]}`);  ```
--     event.preventDefault(); - onSubmit에서 멈추는
+-     event.preventDefault(); - onSubmit에서 멈추는 , 막기
  ##  Props
   - 함수 전달: onClick={handleClick} 소괄호 없음
   - 함수 호출: onClick={() => onClick()} 소괄호 있음
@@ -72,8 +77,12 @@ getProducts();
       })}
 ```
  ## TMDB 
-	- .env : config 파일(환경변수)
+	- /src/.env : config 파일(환경변수) - 변수명에 VITE_를 꼭 써야 함
+	- /src/.env.example : 환경변수 정리파일
 	- VITE_TMDB_API_KEY=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZTI5NzE3MjY4NjMzYjE4YmVlZTk3Yzg3YzBjMDQ1NSIsIm5iZiI6MTU2ODg3Njk5MS4wMSwic3ViIjoiNWQ4MzI5YmYxNjJiYzMwMjI3ZGRmY2Q2Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.K4Rfgg3rBpZHzkWitF3lASxkW7LXnd2nZFDkzmb3e5c
+	
+	// 환경 변수 사용
+``` const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL; ```
 ```
 const BASE_URL = `https://api.themoviedb.org/3`;
 const API_KEY = import.meta.env["VITE_TMDB_API_KEY"];
@@ -114,7 +123,7 @@ const [movies, setMovies] = useState([]);
  ## 라우터(React Router)
  ### React Router 설치
  - react router 버전 7 설치
- ```npm install react-router-dom@^7```
+ ``` npm install react-router-dom@^7 ```
  - src/router/index.js 파일에
  ```	import { createBrowserRouter } from "react-router-dom";	
  const router = createBrowserRouter([
@@ -145,6 +154,7 @@ export default router;	```
    </StrictMode>
  );
 ```
+ 
  ### Link 
 	``` import { Link } from "react-router-dom";
 	<Link to="/about">소개</Link> ```
@@ -173,6 +183,31 @@ export default router;	```
  useState 는 주소창에 나타나지 않고 쿼리 파라미터는 주소창에 나타난다.
  -  ?? "" : Nullish 연산자
  ``` const order = searchParams.get("order") ?? "asc";  ```
+ 
+ ### Outlet - 경로 안에 경로를 중첩하는 방식으로, 공통 레이아웃을 유지하면서 페이지의 일부 영역은 자식 컴포넌트를 배치
+``` import { Outlet } from "react-router-dom";
+ <Outlet></Outlet> ``` 
+ ### createBrowserRouter() 함수의 children 속성
+- 부모 경로에 중첩할 자식 경로를 설정한다 
+- 자식 경로의 컴포넌트는 부모 경로의 <Outlet> 컴포넌트 위치에 배치
+ ### 경로 파라미터(Path Parameters)
+	- :{paramName}: 파라미터 키(key)
+	```
+	path: "/posts/:postId", //  파라미터 :postId, 동적으로 처리되는 변수
+	```
+	- 추출 ```
+	import { useParams } from "react-router-dom";
+	const { postId } = useParams(); ```
+ ### 쿼리 파라미터(Query Parameters)
+ - useSearchParams() 훅 
+ ``` import { useSearchParams } from "react-router-dom";
+
+// [쿼리 파라미터, 쿼리 파라미터 변경 함수]
+const [searchParams, setSearchParams] = useSearchParams(); ```
+ - 쿼리 파라미터 값 읽기	
+	``` const sortBy = searchParams.get("sortBy"); ```
+ - 쿼리 파라미터 값 변경
+	``` setSearchParams({ sortBy: "id", order: "asc" });
  ### 초기화, 이전페이지, 다음페이지
  ```
 	 onClick={() => { setSearchParams({});}}		// 초기화
@@ -201,3 +236,16 @@ export default router;	```
  ### edux, redux-toolkit 설치
  npm install react-redux
 npm install @reduxjs/toolkit
+  ## JavaScript JWT 디코더
+	```  npm install jwt-decode  ```
+	- jwt-decode 라이브러리 사용
+	```  import { decode } from "jwt-decode";
+const token = "...";
+
+const decoded = decode(token);
+console.log(decoded);	```  
+ysk8104@naver.com / 12341234
+### Redux Persist - Redux의 전역 상태를 브라우저의 로컬 스토리지(Local Storage)에 저장하고, 새로고침 후에도 전역 상태를 복원하는 도구
+``` npm install redux-persist ```
+
+

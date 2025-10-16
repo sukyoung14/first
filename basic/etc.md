@@ -266,3 +266,7 @@ npm start를 터미널 창에 넣으면 node main.js가 실행된다
  크롬 확장프로그램  >  Redux DevTools 설치 
  ### 사용자 인증(Authentication)
 	- JWT(JSON Web Token) - https://www.jwt.io/ (JWT 인코더/디코더 서비스)
+	- supabase (예제 서버)
+	const SUPABASE_URL = "https://jfsjmxtokcazzpykrxwp.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc2pteHRva2NhenpweWtyeHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyMDE4NjksImV4cCI6MjA3NTc3Nzg2OX0.n-IAryEgUti5atr30MGszQ-fzStuW3BZDRMuaPPIefw";

@@ -15,12 +15,13 @@ export default function Login() {
   const token = useSelector((state) => {
     return state.auth.token;
   });
+  //console.log("Login : ", token);
 
   useEffect(() => {
     if (token) {
       alert("로그인 상태입니다.");
       console.log(token);
-      navigate("/");
+      //navigate("/profile");
     }
   }, [token]);
   function handleSubmit(e) {

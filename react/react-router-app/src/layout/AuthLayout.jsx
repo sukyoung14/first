@@ -14,7 +14,7 @@ export default function AuthLayout() {
         {/* 삼항연산자 는 표현식이라서 템플릿 리터럴이 적용 가능하다 */}
         <NavLink
           className={({ isActive }) =>
-            `${baseClass} ${isActive ? activeClass : ""} `
+            `${baseClass} ${isActive ? activeClass : baseClass} `
           }
           to={PATHS.AUTH.INDEX}
           end

@@ -42,7 +42,12 @@ YouTubeYouTube
 
 커서 - https://cursor.com/
 폴더 내 파일에서 오류 찾아냄 -> 해결방안 적용(행동)
-gemini CLI
+gemini CLI  ``` npm install -g @google/gemini-cli@latest ```
+인증 방식 선택
+키보드 Enter를 입력하여 Login with Google 선택
+구글 로그인
+웹 브라우저가 실행되고, 구글 로그인 페이지가 표시된다
+Gemini CLI에 로그인할 계정을 선택
 
 # 페르소나
 
@@ -84,7 +89,13 @@ gemini CLI
 강동균
 
 ---
-
+피자 
+이용민
+곽광렬
+오명제
+김수환
+황병일
+---
 ## 2025-09-10
 
 gitignore - https://www.toptal.com/developers/gitignore
@@ -294,6 +305,121 @@ const SUPABASE_ANON_KEY =
 Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
 ## 2025-10-16
 
-###
-
+### 마크 다운 표현으로 해줌
     ``` npm install react-markdown remark-gfm	```
+	/chat-bot-app/src/index.css에 /* 마크다운 스타일링 */
+```` import ReactMarkdown from "react-markdown";
+<ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {message.content}
+          </ReactMarkdown> ```
+  // useRef  훅 : document.querySelector() -> 요소를 선택
+  
+## git 병합 워크플로우
+
+1. 브랜치 생성 `git branch <브랜치명>` <!-- git branch git-branch -->
+2. 브랜치 전환 `git switch <브랜치명>` <!-- git switch git-branch -->
+3. 작업
+4. `git add .`
+5. `git commit -m "커밋 메세지`
+6. `git push origin <브랜치명>` <!-- git push origin git-branch -->
+7. gitHub 저장소 접속
+8. GitHub 병합 처리
+   1. 상단 `Pull requests` 클릭
+   2. `New pull request` 클릭
+   3. compare를 병합할 브랜치로 변경
+   4. `Create pull request` 클릭
+   5. 제목(title)과 설명(description) 작성
+   6. `Create pull request` 클릭
+   7. 코드 검토(리뷰)
+   8. 3개의 병합 방법 중 하나를 선택해서 병합 처리
+   9. 브랜치 삭제
+9. (로컬) git switch main
+10. (로컬) git pull origin main
+11. (로컬) 브랜치 삭제 `git branch -D <브랜치명>` <!-- git branch -D git-branch - 로컬에서는 병합이 안되어서...d로는 삭제가 안된다-->
+
+
+ # React 프로젝트 생성
+ <!--npm create vite@latest {프로젝트 이름} -- --template react -->
+  1. React 프로젝트 
+	- npm create vite@latest my-react-app -- --template react
+		1) Need to install the following packages:
+		create-vite@...
+		Ok to proceed? (y) 
+    - cd my-react-app
+	- npm install
+  2. Tailwind CSS  
+    - npm install tailwindcss @tailwindcss/vite
+	- Vite 설정 파일 vite.config.js 수정
+	``` import { defineConfig } from "vite";
+		import react from "@vitejs/plugin-react";
+		import tailwindcss from "@tailwindcss/vite";
+
+		// <https://vite.dev/config/>
+		export default defineConfig({
+		  plugins: [react(), tailwindcss()],
+		});		``` 
+	- src/index.css 파일 수정
+	``` @import "tailwindcss";		```
+  3. axios	- 비동기 HTTP 요청 & 응답 처리를 위한 JavaScript 라이브러리
+	``` npm install axios 	```
+	- package.json 추가 작성
+	``` {
+	  "type": "module"
+	}```
+  4. React Router v7	- 라우팅을 구현하고, 관리하는 도구
+	``` npm install react-router-dom@^7 ```
+  5. Redux Toolkit, Redux Persist - 전역 상태 관리
+	``` npm install react-redux
+	npm install @reduxjs/toolkit		``` 
+  6. Redux Persist 설치  - Redux의 전역 상태를 브라우저의 로컬 스토리지(Local Storage)에 저장하고, 새로고침 후에도 전역 상태를 복원하는 도구
+	``` npm install redux-persist 		``` 
+  6. /src/.env 설정파일 생성, .gitignore에 추가
+   ``` VITE_GEMINI_API_KEY="AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q"	//Google Gemini API		``` 
+  7. router 설정
+    - src/router/index.js 생성
+	``` import { createBrowserRouter } from "react-router-dom";
+
+	const router = createBrowserRouter([
+	  {
+		path: "/",
+		Component: RootRayout,
+		children: [
+		  {
+			path: "/",
+			Component: Home,
+		  },
+		  {
+			path: "/chat",
+			Component: Chat,
+		  },
+		],
+	  },
+	]);
+
+	export default router;		   ```
+   - src/main.jsx 수정
+	``` import { RouterProvider } from "react-router-dom";
+	import router from "./router";
+	<StrictMode>
+		<RouterProvider router={router} />
+	  </StrictMode> 	``` 
+   - RootRayout 수정
+	``` import { Outlet } from "react-router-dom";
+		<Outlet />	``` 
+  8. store 설정 
+  - src/main.jsx 수정
+  ``` import { Provider } from "react-redux";
+	import { store } from "./store";
+	import { PersistGate } from "redux-persist/integration/react";
+	import { persistor } from "./store";
+	<StrictMode>
+		<Provider store={store}>
+		  <PersistGate persistor={persistor}>
+			<RouterProvider router={router}></RouterProvider>
+		  </PersistGate>
+		</Provider>
+	  </StrictMode>		``` 
+   9. JavaScript JWT 디코더
+   ```  npm install jwt-decode  ```
+ysk8104@naver.com / 12341234
+ssukyoung14@gmail.com / 123123

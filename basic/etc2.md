@@ -25,6 +25,7 @@
 - padding: 내부 여백
 
 # Tailwind CSS
+``` @import "tailwindcss";``` 
 - cursor-pointer - 손모양
 # 자바스크립트
  - 터미널에서 실행 : node 파일명
@@ -160,8 +161,13 @@ export default router;	```
 	<Link to="/about">소개</Link> ```
  ### NavLink	
  - 현재 URL과 to 속성이 일치하는지 판단 
- - end 사용
- ``` className={({ isActive }) => (isActive ? activeStyle : "")} ```
+ - end 사용 : home 이상일때
+ ``` className={({ isActive }) => (isActive ? activeStyle : baseClass)} 
+ <NavLink
+          className={({ isActive }) => (isActive ? activeStyle : baseClass)}
+          to="/login"
+          end
+        > ```
  ### Navigate
  - 즉시 다른 페이지로 이동시킬 때 사용한다(리다이렉트) ex) 로그인
  - replace 속성: 히스토리에 남기지 않아서 사용자가 뒤로가기 버튼으로 이전 페이지로 돌아갈 수 없다
@@ -207,7 +213,7 @@ const [searchParams, setSearchParams] = useSearchParams(); ```
  - 쿼리 파라미터 값 읽기	
 	``` const sortBy = searchParams.get("sortBy"); ```
  - 쿼리 파라미터 값 변경
-	``` setSearchParams({ sortBy: "id", order: "asc" });
+	``` setSearchParams({ sortBy: "id", order: "asc" }); ```  
  ### 초기화, 이전페이지, 다음페이지
  ```
 	 onClick={() => { setSearchParams({});}}		// 초기화
@@ -233,7 +239,7 @@ const [searchParams, setSearchParams] = useSearchParams(); ```
   ## Redux 
   ### Redux Toolkit
  - https://redux-toolkit.js.org/
- ### edux, redux-toolkit 설치
+ ### redux, redux-toolkit 설치
  npm install react-redux
 npm install @reduxjs/toolkit
   ## JavaScript JWT 디코더
@@ -245,7 +251,18 @@ const token = "...";
 const decoded = decode(token);
 console.log(decoded);	```  
 ysk8104@naver.com / 12341234
-### Redux Persist - Redux의 전역 상태를 브라우저의 로컬 스토리지(Local Storage)에 저장하고, 새로고침 후에도 전역 상태를 복원하는 도구
+ ###  Redux Persist - Redux의 전역 상태를 브라우저의 로컬 스토리지(Local Storage)에 저장하고, 새로고침 후에도 전역 상태를 복원하는 도구
 ``` npm install redux-persist ```
 
 
+ ### 마크 다운 표현으로 해줌
+    ``` npm install react-markdown remark-gfm	```
+	/chat-bot-app/src/index.css에 /* 마크다운 스타일링 */
+```` import ReactMarkdown from "react-markdown";
+<ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {message.content}
+          </ReactMarkdown> ```
+  // useRef  훅 : document.querySelector() -> 요소를 선택
+ // 응답 메시지가 추가되면 최하단으로 스크롤
+ ````    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); ```` 
+ 

@@ -6,14 +6,15 @@
 
 ysk8104@naver.com / 12341234
 ssukyoung14@gmail.com/qlalfqjsgh1@
-https://github.com/ ssukyoung14@gmail.com/qlalfqjsgh1@@@
+https://github.com/ - ssukyoung14@gmail.com/qlalfqjsgh1@@@
 qlalfqjsgh1@@@
 
 파트너플러스 - https://partnerplus.lgcns.com/lpp/home
 
 데일리 알고 - https://learn.dailyalgo.kr/courses/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B8%B0%EB%B0%98-ai%EC%9C%B5%ED%95%A9-%EC%9E%90%EB%B0%94-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%8B%A4%EC%A0%84-%EA%B3%BC%EC%A0%95/267611ac-3a00-8006-9884-e479e9dae2b0
 슬랙 - https://app.slack.com/client/T09CVQ6KVGA/C09D9S6M673
-
+teacher-learning git - https://github.com/seongdong3/teacher-learning
+SUPABASE - https://supabase.com/dashboard/org/qnzzlmjzjepprslnkfai ssukyoung14@gmail.com/qlalfqjsgh1@
 ---
 
 깃 리스트
@@ -406,7 +407,7 @@ Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
    - RootRayout 수정
 	``` import { Outlet } from "react-router-dom";
 		<Outlet />	``` 
-  8. store 설정 
+  8. store 설정 -- 전역변수
   - src/main.jsx 수정
   ``` import { Provider } from "react-redux";
 	import { store } from "./store";
@@ -421,5 +422,12 @@ Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
 	  </StrictMode>		``` 
    9. JavaScript JWT 디코더
    ```  npm install jwt-decode  ```
-ysk8104@naver.com / 12341234
+   10. genai AI
+    - Gen AI 설치
+   ``` npm install @google/genai   ``` 
+	- dotenv 설치
+   ``` npm install dotenv   ``` 
+	- 마크 다운 표현으로 해줌
+   ```  npm install react-markdown remark-gfm    ```  
+ysk8104@naver.com / 12341234  123123
 ssukyoung14@gmail.com / 123123

@@ -30,8 +30,14 @@
 # 자바스크립트
  - 터미널에서 실행 : node 파일명
  - 구조 분해 할당 : 배열이나 객체의 값을 쉽게 추출해서 변수에 할당
+ - JSON.stringify() : JavaScript 객체를 JSON 문자열로 변환
+ ``` const person = { name: "홍길동", age: 30, job: "개발자" };
+const jsonString = JSON.stringify(person);	```
+ - JSON.parse() : JSON 문자열을 JavaScript 객체로 변환
+ ``` const jsonString = '{"name":"홍길동","age":30,"job":"개발자"}';
+const person = JSON.parse(jsonString);	```
  
- ##  axios
+ ##  axios 실행
  npm install axios 
  - package.json 추가 작성
  {
@@ -265,4 +271,188 @@ ysk8104@naver.com / 12341234
   // useRef  훅 : document.querySelector() -> 요소를 선택
  // 응답 메시지가 추가되면 최하단으로 스크롤
  ````    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); ```` 
- 
+ ### axios로 DB 저장
+  ``` import { useState, useEffect, useCallback } from "react";
+ import axios from "axios";
+
+const BASE_URL = import.meta.env.VITE_SUPABASE_MEMO_URL;
+const [memos, setMemos] = useState([]);
+const getMemo = useCallback( async (userId, filterFlag = null) => {
+      if (!userId) return;
+      try {
+        const url = `${BASE_URL}/rest/v1/tb_memo`;
+        const params = {
+          select: "*",
+          order: "created_at.desc",
+        };
+
+        if (filterFlag !== null) {
+          params.flag = `eq.${filterFlag}`;
+        }
+
+        const config = {
+          method: "GET",
+          url: url,
+          headers: {
+            apikey: ANON_KEY,
+            "Content-Type": "application/json",
+          },
+          params: params,
+        };
+
+        const response = await axios(config);
+        const data = response.data;
+        console.log(data);
+        setMemos(data);
+      } catch (err) {
+        alert("메모 목록을 불러오는데 실패했습니다.");
+      }
+    },
+    [token]
+  );
+const handleMemoUpdated = useCallback(() => {
+    if (currentUserId) {
+      getMemo(currentUserId, null);
+    }
+  }, [currentUserId, getMemo, activeFilter]);
+const handleMemoUpdated = useCallback(() => {
+    if (currentUserId) {
+      setActiveFilter(null);
+      getMemo(currentUserId, null);
+    }
+  }, [currentUserId, getMemo, activeFilter]); ``` 
+----------------------------------
+ ``` {flagMemos.length === 0 ? (
+        <p>메모가 없습니다.</p>
+      ) : (
+        flagMemos.map((memo) => {
+          return (
+            <MemoList
+              key={memo.id}
+              memo={memo}
+              onDelete={handleDeleteMemo}
+              onMemoUpdated={handleMemoUpdated}
+            />
+          );
+        })
+      )} ``` 
+----------------------------------
+ ``` export default function MemoList({ memo, onDelete, onMemoUpdated }) {}
+function handelClick() {
+    if (confirm(`${memo.flag ? "미완료" : "완료"}로 변경하시겠습니까?`)) {
+      postMemo(memo.flag ? false : true);
+    }
+  }
+ async function postMemo(memoFlag) {
+    try {
+      const url = `${BASE_URL}/rest/v1/tb_memo?id=eq.${memo.id}`;
+      const config = {
+        method: "PATCH",
+        url: url,
+        headers: {
+          apikey: ANON_KEY,
+          "Content-Type": "application/json",
+        },
+        data: {
+          id: memo.id,
+          flag: memoFlag,
+        },
+      };
+      const response = await axios(config);
+      const data = response.data;
+      setflag(memo.flag ? false : true);
+      if (onMemoUpdated) {
+        onMemoUpdated();
+      }
+    } catch (err) {
+      alert("변경에 실패했습니다.");
+    }
+  }
+  async function DelMemo() {
+    try {
+      const url = `${BASE_URL}/rest/v1/tb_memo?id=eq.${memo.id}`;
+      const config = {
+        method: "DELETE",
+        url: url,
+        headers: {
+          apikey: ANON_KEY,
+          "Content-Type": "application/json",
+        },
+        data: {
+          id: memo.id,
+        },
+      };
+      const response = await axios(config);
+      const data = response.data;
+      console.log("Memo Delete successfully.");
+      if (onDelete) {
+        onDelete(memo.id); // 부모 컴포넌트에 삭제된 메모의 ID 전달
+      }
+    } catch (err) {
+      alert("메모 삭제가 실패했습니다.");
+    }
+  } ``` 
+  ----------------------------------
+  ## Redux - 전역 상태 관리
+  ### 스토어(store) - 리듀서(Reducer)를 받아서 전역 상태를 관리하는 중앙 저장소
+
+  ### dispatch - 컴포넌트에서 액션 생성자 함수를 실행하고, 그 결과인 액션을 스토어(store)에 전달(dispatch)하는 함수
+  ``` import { useDispatch } from "react-redux";
+  import { 액션_생성자_함수 } from "...";
+  const dispatch = useDispatch();
+  <button onClick={() => dispatch(액션_생성자_함수())}>상태 변경</button>  ``` 
+ ### Slice (슬라이스) - 리듀서(Reducer)와 액션(Action)을 한 번에 생성하는 함수
+ - src/store/counterSlice.js
+  ``` import { createSlice } from "@reduxjs/toolkit";
+  const initialState = { count: 0, };
+  const counterSlice = createSlice({
+  name: "counter",
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.count += 1;
+    },
+    incrementByAmount: (state, action) => {
+      state.count += Number(action.payload);
+    },
+    reset: (state) => {
+      state.count = 0;
+    },
+  },
+});
+export const { increment, incrementByAmount, reset } = counterSlice.actions;
+
+export default counterSlice.reducer;
+   ``` 
+ -  src/store/index.js
+   ```  import { configureStore } from "@reduxjs/toolkit";
+	import CounterSlice from "./counterSlice";
+
+	export const store = configureStore({
+  reducer: {
+    // 리듀서 설정
+    counter: counterReducer,
+  },
+});
+
+	// 스토어 내보내기
+	export store;   ``` 
+	
+ ### Provider - Redux 스토어를 애플리케이션 전체에 적용하기 위한 컴포넌트
+    ``` import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import App from "./App.jsx";
+import "./index.css";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>
+);   ``` 
+ ### useSelector - 스토어(store)에서 상태를 가져오는 훅
+   ``` import { useSelector } from "react-redux";
+ const state = useSelector((state) => state.상태);  ``` 

@@ -16,6 +16,9 @@ qlalfqjsgh1@@@
 teacher-learning git - https://github.com/seongdong3/teacher-learning
 SUPABASE - https://supabase.com/dashboard/org/qnzzlmjzjepprslnkfai ssukyoung14@gmail.com/qlalfqjsgh1@
 ---
+https://www.udemy.com/ 인강
+https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3Dnull%7Chk%3Ddd9730a7dd73fdef58260af0ed0d912ca9fd1e52 인프런
+---
 
 깃 리스트
 git config --list
@@ -431,3 +434,16 @@ Learning - AIzaSyCLtvJkqFJ5kkoeGHm8IP-78tQCDJjC48Q
    ```  npm install react-markdown remark-gfm    ```  
 ysk8104@naver.com / 12341234  123123
 ssukyoung14@gmail.com / 123123
+# 2025-10-22 DATABASE
+
+ ## Backend Developer - https://roadmap.sh/backend
+ ## DATABASE
+ - DATABASE 순위 -  https://db-engines.com/en/ranking
+ ## MySQL Community Server - https://dev.mysql.com/downloads/mysql/ 
+ 8.4.7 LTS  > Windows (x86, 64-bit), MSI Installer download -> 로그인 안하고 No thanks, just start my download. 누르기
+ ## MySQL Workbench - MySQL Workbench 8.0.43 -  https://dev.mysql.com/downloads/workbench/ 
+	- 포트 : 3306
+ - 비밀번호 : password
+ - mysql sample data - https://dev.mysql.com/doc/index-other.html
+ ERD 작성: draw.io, https://app.diagrams.net/
+ 

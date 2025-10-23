@@ -4,6 +4,13 @@
  - 형변환 : Number("1")  <!--숫자형-->
  - 카멜케이스 : 속성명의 첫 글자를 소문자로 작성하고, 나머지 단어의 첫 글자를 대문자로 작성하는 방법
 
+# GIT
+	- 윈도우 > 터미널에서 열기 : windows powershell로 열림
+	- 터미널에서 git bash를 기본값으로 하는 법 : https://velog.io/@alsry922/Windows-Terminal%EC%97%90-git-bash-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0
+	``` 가져오기  
+	- git remote add origin https://github.com/SESAC-SD3/SQL.git 
+	- git pull origin main		```
+	
 # HTML
 
  - <input> 태그의 placeholder 속성 : 사용자가 아무것도 입력하지 않았을 때 임시로 나타나는 회색 글씨

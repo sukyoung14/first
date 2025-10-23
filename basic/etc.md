@@ -1,8 +1,9 @@
 정우영 강사님
+오창희 강사님
 정우영 강사 연락처 : 010-8821-2515
 원유정 매니져님
 
----
+----
 
 ysk8104@naver.com / 12341234
 ssukyoung14@gmail.com/qlalfqjsgh1@
@@ -18,15 +19,22 @@ SUPABASE - https://supabase.com/dashboard/org/qnzzlmjzjepprslnkfai ssukyoung14@g
 ---
 https://www.udemy.com/ 인강
 https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3Dnull%7Chk%3Ddd9730a7dd73fdef58260af0ed0d912ca9fd1e52 인프런
----
+디비버 - https://dbeaver.io/download/  ORACLE, MS-sql, My-sql 모두 다 가능
+
+성동3 엑셀 파일 - https://docs.google.com/spreadsheets/d/135xH2tNi5oBR7ZxobPm1Hfu4P-DcWi6ir9yFET5sBqU/edit?gid=1714071338#gid=1714071338
+
+----
 
 깃 리스트
 git config --list
 
 ctrl+j : terminal
 
----
-
+----
+----
+git remote add origin https://github.com/SESAC-SD3/SQL.git 
+	- git pull origin main		
+----
 ## 2025-09-09
 
 #AI #개발 #코딩
@@ -38,7 +46,7 @@ YouTubeYouTube
 주목해야 하는 인공지능 소식과 활용 방법을 전해요
 비즈니스 문의: abel@even-my-dogs.com
 
----
+----
 
 토큰 https://platform.openai.com/tokenizer?ref=prototypr
 단어로 나눔
@@ -68,7 +76,7 @@ Gemini CLI에 로그인할 계정을 선택
 클로드코더 - 터미널에서 쓸수 있는
 바이브코딩
 
----
+----
 
 [새싹 매칭데이 이력서 템플릿 문항 공유]
 성격, 가치관, 성장 과정 등 본인 소개
@@ -78,34 +86,34 @@ Gemini CLI에 로그인할 계정을 선택
 본인의 가장 큰 강점
 긍정적인 마인드가 가장 큰 장점이라고 생각합니다.
 
----
+----
 
 점심
 김재현
 김현중
 이재호
 
----
+----
 
 우리줄
 오승우
 강연주
 강동균
 
----
+----
 피자 
 이용민
 곽광렬
 오명제
 김수환
 황병일
----
+----
 ## 2025-09-10
 
 gitignore - https://www.toptal.com/developers/gitignore
 강사님 - https://github.com/seongdong3/teacher-learning
 
----
+----
 
 ## 2025-09-11
 
@@ -136,7 +144,7 @@ ctrl + 화살표 -- 단어별로 이동
 ctrl +shift + 화살표 -- 단어별로 선택
 단어 -> ctrl + D -- 특정 단어 선택
 
----
+----
 
 ## 2025-09-11
 
@@ -144,7 +152,6 @@ ctrl +shift + 화살표 -- 단어별로 선택
 C:\sesac\teacher-learning 에서 코드로 열어
 터미널에서 git pull origin main
 
----
 
 ## 2025-09-12
 
@@ -163,14 +170,12 @@ color picker - https://www.google.com/search?q=color+picker&sca_esv=5d97f5e53812
   }
   discord - https://discord.gg/FJ3nmYuVGq
 
----
 
 ## 2025-09-15
 
 Google Fonts 접속 - https://fonts.google.com/
 Bootstrap 컴포넌트 기반 웹 - https://getbootstrap.com/
 
----
 
 ## 2025-09-17
 
@@ -446,4 +451,7 @@ ssukyoung14@gmail.com / 123123
  - 비밀번호 : password
  - mysql sample data - https://dev.mysql.com/doc/index-other.html
  ERD 작성: draw.io, https://app.diagrams.net/
+ 
+ # 2025-10-23
+ 
  

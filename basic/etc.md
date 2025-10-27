@@ -22,7 +22,7 @@ https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%
 디비버 - https://dbeaver.io/download/  ORACLE, MS-sql, My-sql 모두 다 가능
 
 성동3 엑셀 파일 - https://docs.google.com/spreadsheets/d/135xH2tNi5oBR7ZxobPm1Hfu4P-DcWi6ir9yFET5sBqU/edit?gid=1714071338#gid=1714071338
-
+오창희쌤 git - https://github.com/SESAC-SD3
 ----
 
 깃 리스트
@@ -452,6 +452,6 @@ ssukyoung14@gmail.com / 123123
  - mysql sample data - https://dev.mysql.com/doc/index-other.html
  ERD 작성: draw.io, https://app.diagrams.net/
  
- # 2025-10-23
+ # 2025-10-27
  
  

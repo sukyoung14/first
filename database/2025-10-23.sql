@@ -17,7 +17,7 @@ CREATE TABLE orders (
     FOREIGN KEY	(customer_id)	REFERENCES	customer(id)
 );
 
- -- 테이블 구조 확인
+ -- 테이블 구조 확인ｓ
  DESCRIBE customer;
  -- 테이블 삭제
  DROP TABLE customer;

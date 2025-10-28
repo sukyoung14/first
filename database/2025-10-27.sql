@@ -219,3 +219,16 @@ EXPLAIN SELECT * FROM city WHERE NAME = 'Seoul';			-- EXPLAIN : 쿼리가 어떻
 DROP INDEX idx_city_name ON city;
 -- -------------------------------------------------------------------------------------------------------------------------------
 -- View 
+CREATE VIEW large_country AS
+SELECT * 
+FROM country
+where Population >= 50000000
+;
+SELECT * FROM country_view;
+CREATE VIEW country_view AS
+SELECT 
+	co.Name country_Name, ci.Name city_Name
+FROM country co INNER JOIN city ci
+ON co.Code = ci.CountryCode;
+SHOW FULL TABLES;
+SHOW FULL TABLES WHERE table_Type = 'VIEW';

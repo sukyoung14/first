@@ -150,3 +150,28 @@ COMMIT; -- 확정
 ## INDEX
 
 EXPLAIN SELECT \* FROM city WHERE NAME = 'Seoul'; -- EXPLAIN : 쿼리가 어떻게 실행되는지 보여줌
+
+## 트랜잭션(Transaction)
+
+- SAVEPOINT (세이브포인트) : 트랜잭션 내에서 부분 롤백 지점을 만드는 기능
+
+```
+START TRANSACTION;
+INSERT INTO accounts (name, balance) VALUES ('hong', 0) ;
+SAVEPOINT sp1;
+INSERT INTO accounts (name, balance) VALUES ('choi', 1000000) ;
+SAVEPOINT sp2;
+ROLLBACK TO SAVEPOINT sp1;
+COMMIT;  <!--   작업 1만 확정 -->
+```
+
+- 자동 커밋 모드 (Autocommit) -- 1 (활성화)
+  ``` select @@autocommit; ````
+- 자동 커밋 비활성화
+  ``` SET autocommit = 0; ````
+- 자동 커밋 재활성화
+  ``` SET autocommit = 1; ````
+
+## create을 만드는 쿼리 알려줌
+
+``` SHOW CREATE TABLE film; ````

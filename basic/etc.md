@@ -454,4 +454,35 @@ ssukyoung14@gmail.com / 123123
  
  # 2025-10-27
  
+ 위와 같은 스키마를 가지는 테이블이 있어 이 테이블을 이용해서 sql where절을 연습할수 있는 연습문제를 만들어줘 
  
+ ## gemini cli extensions - https://geminicli.com/extensions/   context7
+ cli에 확장프로그램 설치 - https://github.com/gemini-cli-extensions/mysql : MySQL
+ ```
+ gemini extensions install https://github.com/gemini-cli-extensions/mysql	
+ cd ~
+ cd .gemini/
+ cd extensions
+ cd mysql
+ code gemini-extension.json
+ 
+ cd ~
+ touch .bashrc
+ code .bashrc
+ ```
+ .bashrc 파일에 (vscode프로그램으로) export ASDF='test' 넣고 저장후  터미널 껏다 키기
+``` echo $ASDF					-- ASDF변수를 쓰겠다는 의미
+ gemini
+ /mcp list					-- mcp list	
+ ```
+ ## 코호트, 리텐션, 퍼널 - 분석방법
+ 1. 코호트 (Cohort)
+	의미: 특정 기간 동안 공통된 특성(예: 회원가입 월, 최초 앱 실행일)을 가진 사용자 집단.
+	활용: 코호트 분석은 전체 사용자가 아닌, 특정 집단의 행동을 추적하여 시간 경과에 따른 서비스 이용 변화를 파악하는 데 사용됩니다. 
+ 2. 리텐션 (Retention)
+	의미: 사용자가 특정 행동(예: 서비스 재방문, 구매)을 얼마나 오랫동안 유지하는지를 나타내는 지표.
+	활용: 서비스의 장기적인 성공을 예측하는 데 중요하며, 코호트별 리텐션 분석을 통해 어떤 사용자 집단이 더 오래 서비스에 머무르는지 파악할 수 있습니다. 
+ 3. 퍼널 (Funnel)
+	의미: 사용자가 목표 달성 과정에서 거치는 단계를 깔때기(Funnel) 모양으로 시각화한 것.
+	활용: 사용자가 어느 단계에서 이탈하는지 파악하여 문제점을 발견하고 개선하는 데 사용됩니다. 예를 들어, 회원가입 퍼널을 분석하면 어느 단계에서 사용자들이 가장 많이 이탈하는지 알 수 있습니다. 
+	

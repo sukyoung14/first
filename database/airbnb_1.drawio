@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.8">
+  <diagram name="AIRBnB_Full_ERD" id="airbnb_full_erd">
+    <mxGraphModel dx="3026" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="users" value="users user_id : BIGINT PK name : VARCHAR email : VARCHAR" style="shape=table;fillColor=#D5E8D4;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="50" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hosts" value="hosts host_id : BIGINT PK user_id : BIGINT FK" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="160" y="60" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="listings" value="listings listing_id : BIGINT PK host_id : BIGINT FK" style="shape=table;fillColor=#FFF2CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="550" y="50" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bookings" value="bookings booking_id : BIGINT PK listing_id : BIGINT FK guest_id : BIGINT FK" style="shape=table;fillColor=#DAE8FC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="800" y="50" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="host_verifications" value="host_verifications verification_id : BIGINT PK host_id : BIGINT FK verification_type : ENUM status : ENUM document_url : VARCHAR verified_at : TIMESTAMP verified_by : VARCHAR rejection_reason : TEXT expires_at : TIMESTAMP created_at : TIMESTAMP" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="220" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="payout_methods" value="payout_methods payout_method_id : BIGINT PK host_id : BIGINT FK method_type : ENUM account_holder_name : VARCHAR bank_name : VARCHAR account_number_encrypted : VARCHAR routing_number : VARCHAR swift_code : VARCHAR iban : VARCHAR paypal_email : VARCHAR country_code : CHAR(2) currency_code : CHAR(3) is_default : BOOLEAN status : ENUM created_at : TIMESTAMP updated_at : TIMESTAMP" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="270" y="300" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="amenities" value="amenities amenity_id : BIGINT PK name : VARCHAR category : ENUM icon_name : VARCHAR description : TEXT is_active : BOOLEAN created_at : TIMESTAMP" style="shape=table;fillColor=#D5E8D4;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="50" y="400" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="listing_amenities" value="listing_amenities listing_amenity_id : BIGINT PK listing_id : BIGINT FK amenity_id : BIGINT FK added_at : TIMESTAMP" style="shape=table;fillColor=#FFF2CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="300" y="400" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fees" value="fees fee_id : BIGINT PK listing_id : BIGINT FK fee_type : ENUM fee_name : VARCHAR amount : DECIMAL is_percentage : BOOLEAN applies_after_guest_count : INT currency_code : CHAR(3) description : TEXT is_active : BOOLEAN created_at : TIMESTAMP updated_at : TIMESTAMP" style="shape=table;fillColor=#FFF2CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="550" y="200" width="470" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="listing_requirements" value="listing_requirements requirement_id : BIGINT PK listing_id : BIGINT FK instant_book_enabled : BOOLEAN require_profile_photo : BOOLEAN require_verified_id : BOOLEAN require_payment_method : BOOLEAN require_good_track_record : BOOLEAN min_positive_reviews : INT max_negative_reviews : INT custom_requirements : JSON created_at : TIMESTAMP updated_at : TIMESTAMP" style="shape=table;fillColor=#FFF2CC;fontColor=#000000;" parent="fees" vertex="1">
+          <mxGeometry x="250" y="80" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="threads" value="threads thread_id : BIGINT PK booking_id : BIGINT FK host_id : BIGINT FK guest_id : BIGINT FK listing_id : BIGINT FK status : ENUM last_message_at : TIMESTAMP created_at : TIMESTAMP" style="shape=table;fillColor=#DAE8FC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="50" y="650" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="messages" value="messages message_id : BIGINT PK thread_id : BIGINT FK sender_id : BIGINT FK message_content : TEXT message_type : ENUM attachment_url : VARCHAR is_read : BOOLEAN read_at : TIMESTAMP sent_at : TIMESTAMP" style="shape=table;fillColor=#DAE8FC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="300" y="650" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="payouts" value="payouts payout_id : BIGINT PK host_id : BIGINT FK payout_method_id : BIGINT FK gross_amount : DECIMAL platform_commission : DECIMAL net_amount : DECIMAL currency_code : CHAR(3) status : ENUM payout_date : DATE scheduled_date : DATE completed_at : TIMESTAMP transaction_id : VARCHAR failure_reason : TEXT notes : TEXT created_at : TIMESTAMP updated_at : TIMESTAMP" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="550" y="400" width="260" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="payout_schedules" value="payout_schedules schedule_id : BIGINT PK host_id : BIGINT FK frequency : ENUM day_of_week : INT day_of_month : INT minimum_payout_amount : DECIMAL is_active : BOOLEAN created_at : TIMESTAMP updated_at : TIMESTAMP" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="800" y="400" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ledgers" value="ledgers ledger_id : BIGINT PK booking_id : BIGINT FK host_id : BIGINT FK payout_id : BIGINT FK transaction_type : ENUM amount : DECIMAL currency_code : CHAR(3) description : TEXT transaction_date : DATE status : ENUM created_at : TIMESTAMP" style="shape=table;fillColor=#FFE6CC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="50" y="850" width="260" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="review_moderations" value="review_moderations moderation_id : BIGINT PK review_id : BIGINT FK status : ENUM reason : TEXT moderated_by : VARCHAR moderated_at : TIMESTAMP created_at : TIMESTAMP" style="shape=table;fillColor=#DAE8FC;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="350" y="850" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hosts_host_verifications" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="hosts" target="host_verifications" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hosts_payout_methods" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="hosts" target="payout_methods" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hosts_listings" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="hosts" target="listings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_listings_fees" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="listings" target="fees" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_listings_listing_requirements" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="listings" target="listing_requirements" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_listings_listing_amenities" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="listings" target="listing_amenities" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_amenities_listing_amenities" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="amenities" target="listing_amenities" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_bookings_threads" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="bookings" target="threads" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_threads_messages" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="threads" target="messages" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hosts_payouts" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="hosts" target="payouts" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_payout_methods_payouts" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="payout_methods" target="payouts" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_bookings_ledgers" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="bookings" target="ledgers" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hosts_ledgers" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="hosts" target="ledgers" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_payouts_ledgers" style="edgeStyle=elbowEdgeStyle;rounded=1;" parent="1" source="payouts" target="ledgers" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

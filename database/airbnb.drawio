@@ -1,0 +1,129 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.8">
+  <diagram id="airbnb-erd" name="Airbnb ERD">
+    <mxGraphModel dx="1426" dy="2843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2970" pageHeight="2100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="listings" value="AIRBnB_Common.listings&#xa;────────────&#xa;listing_id : BIGINT (PK)&#xa;host_id : BIGINT (FK→users.user_id)&#xa;title : VARCHAR(255)&#xa;description : TEXT&#xa;property_type : ENUM&#xa;room_type : ENUM&#xa;max_guests : INT&#xa;bedrooms : INT&#xa;beds : INT&#xa;bathrooms : DECIMAL(3,1)&#xa;address_line1 : VARCHAR(255)&#xa;address_line2 : VARCHAR(255)&#xa;city : VARCHAR(100)&#xa;state : VARCHAR(100)&#xa;country : VARCHAR(100)&#xa;postal_code : VARCHAR(20)&#xa;latitude : DECIMAL(10,8)&#xa;longitude : DECIMAL(11,8)&#xa;status : ENUM&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="785" y="120" width="260" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="listing_photos" value="AIRBnB_Common.listing_photos&#xa;────────────&#xa;photo_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;photo_url : VARCHAR(500)&#xa;caption : TEXT&#xa;display_order : INT&#xa;is_cover_photo : BOOLEAN&#xa;uploaded_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="520" y="-60" width="240" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="availability_calendar" value="AIRBnB_Common.availability_calendar&#xa;────────────&#xa;calendar_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;calendar_date : DATE&#xa;status : ENUM&#xa;price_override : DECIMAL(10,2)&#xa;min_nights_override : INT&#xa;notes : TEXT&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1000" y="-40" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="pricing_rules" value="AIRBnB_Common.pricing_rules&#xa;────────────&#xa;pricing_rule_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;base_price : DECIMAL(10,2)&#xa;currency_code : CHAR(3)&#xa;pricing_type : ENUM&#xa;weekend_price : DECIMAL(10,2)&#xa;weekly_discount_percent : DECIMAL(5,2)&#xa;monthly_discount_percent : DECIMAL(5,2)&#xa;min_nights : INT&#xa;max_nights : INT&#xa;effective_from : DATE&#xa;effective_to : DATE" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1065" y="-140" width="260" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="booking_requests" value="AIRBnB_Common.booking_requests&#xa;────────────&#xa;request_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;guest_id : BIGINT (FK→users.user_id)&#xa;check_in_date : DATE&#xa;check_out_date : DATE&#xa;number_of_guests : INT&#xa;guest_message : TEXT&#xa;status : ENUM&#xa;request_date : TIMESTAMP&#xa;response_date : TIMESTAMP&#xa;host_response_message : TEXT&#xa;expires_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1600" y="100" width="270" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bookings" value="AIRBnB_Common.bookings&#xa;────────────&#xa;booking_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;guest_id : BIGINT (FK→users.user_id)&#xa;host_id : BIGINT (FK→users.user_id)&#xa;request_id : BIGINT (FK→booking_requests.request_id)&#xa;confirmation_code : VARCHAR(20)&#xa;check_in_date : DATE&#xa;check_out_date : DATE&#xa;number_of_guests : INT&#xa;number_of_nights : INT&#xa;base_amount : DECIMAL(10,2)&#xa;cleaning_fee : DECIMAL(10,2)&#xa;service_fee : DECIMAL(10,2)&#xa;taxes : DECIMAL(10,2)&#xa;total_amount : DECIMAL(10,2)&#xa;currency_code : CHAR(3)&#xa;booking_type : ENUM&#xa;payment_status : ENUM&#xa;booking_status : ENUM" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="200" y="2800" width="290" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews" value="AIRBnB_Common.reviews&#xa;────────────&#xa;review_id : BIGINT (PK)&#xa;booking_id : BIGINT (FK→bookings.booking_id)&#xa;reviewer_id : BIGINT (FK→users.user_id)&#xa;reviewee_id : BIGINT (FK→users.user_id)&#xa;listing_id : BIGINT (FK→listings.listing_id)&#xa;review_type : ENUM&#xa;rating_overall : INT&#xa;rating_cleanliness : INT&#xa;rating_accuracy : INT&#xa;rating_checkin : INT&#xa;rating_communication : INT&#xa;rating_location : INT&#xa;rating_value : INT&#xa;review_text : TEXT" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="420" y="520" width="280" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_user_profiles" value="AIRBnB_Guest.user_profiles&#xa;────────────&#xa;guest_profile_id : BIGINT (PK)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;preferred_language : VARCHAR(20)&#xa;preferred_currency : CHAR(3)&#xa;emergency_contact_name : VARCHAR(100)&#xa;emergency_contact_phone : VARCHAR(20)&#xa;government_id_type : ENUM&#xa;government_id_number : VARCHAR(100)&#xa;government_id_verified : BOOLEAN&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="200" y="1000" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_payment_methods" value="AIRBnB_Guest.payment_methods&#xa;────────────&#xa;payment_method_id : BIGINT (PK)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;method_type : ENUM&#xa;provider_name : VARCHAR(100)&#xa;account_identifier : VARCHAR(255)&#xa;is_primary : BOOLEAN&#xa;is_verified : BOOLEAN&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="520" y="1000" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_payments" value="AIRBnB_Guest.payments&#xa;────────────&#xa;payment_id : BIGINT (PK)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;payment_method_id : BIGINT (FK→payment_methods.payment_method_id)&#xa;amount : DECIMAL(10,2)&#xa;currency_code : CHAR(3)&#xa;payment_status : ENUM&#xa;payment_gateway : ENUM&#xa;transaction_id : VARCHAR(255)&#xa;processed_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="840" y="1000" width="270" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_refunds" value="AIRBnB_Guest.refunds&#xa;────────────&#xa;refund_id : BIGINT (PK)&#xa;payment_id : BIGINT (FK→payments.payment_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;refund_amount : DECIMAL(10,2)&#xa;refund_reason : TEXT&#xa;refund_status : ENUM&#xa;processed_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="1000" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_cancellations" value="AIRBnB_Guest.cancellations&#xa;────────────&#xa;cancellation_id : BIGINT (PK)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;cancelled_by : ENUM&#xa;cancellation_reason : TEXT&#xa;refund_id : BIGINT (FK→refunds.refund_id)&#xa;cancellation_fee : DECIMAL(10,2)&#xa;created_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1480" y="1000" width="270" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_loyalty_points" value="AIRBnB_Guest.loyalty_points&#xa;────────────&#xa;point_id : BIGINT (PK)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;points_earned : INT&#xa;points_used : INT&#xa;points_balance : INT&#xa;last_updated : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="200" y="1320" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_checkins" value="AIRBnB_Guest.checkins&#xa;────────────&#xa;checkin_id : BIGINT (PK)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;checkin_method : ENUM&#xa;checkin_time : DATETIME&#xa;checkout_time : DATETIME&#xa;status : ENUM" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1320" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_support_tickets" value="AIRBnB_Guest.support_tickets&#xa;────────────&#xa;ticket_id : BIGINT (PK)&#xa;user_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;subject : VARCHAR(255)&#xa;message : TEXT&#xa;status : ENUM&#xa;created_at : TIMESTAMP&#xa;resolved_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#d5f5e3;strokeColor=#27ae60;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="760" y="1320" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_guest_user_profiles" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#27ae60;endArrow=block;endFill=1;" parent="1" source="guest_user_profiles" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="3115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_guest_payments" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#27ae60;endArrow=block;endFill=1;" parent="1" source="guest_payments" target="bookings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_guest_refunds" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#27ae60;endArrow=block;endFill=1;" parent="1" source="guest_refunds" target="guest_payments" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="host_profiles" value="AIRBnB_Host.host_profiles&#xa;────────────&#xa;host_profile_id : BIGINT (PK)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;bio : TEXT&#xa;profile_photo_url : VARCHAR(500)&#xa;languages_spoken : VARCHAR(255)&#xa;avg_response_time_min : INT&#xa;response_rate_percent : DECIMAL(5,2)&#xa;is_superhost : BOOLEAN&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="200" y="1700" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="host_listings_settings" value="AIRBnB_Host.listing_settings&#xa;────────────&#xa;setting_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→AIRBnB_Common.listings.listing_id)&#xa;auto_approval : BOOLEAN&#xa;advance_notice_days : INT&#xa;max_booking_days_ahead : INT&#xa;min_stay_nights : INT&#xa;max_stay_nights : INT&#xa;instant_book_enabled : BOOLEAN&#xa;house_rules : TEXT&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1700" width="270" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="host_payout_methods" value="AIRBnB_Host.payout_methods&#xa;────────────&#xa;payout_method_id : BIGINT (PK)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;method_type : ENUM&#xa;provider_name : VARCHAR(100)&#xa;account_number_masked : VARCHAR(255)&#xa;currency_code : CHAR(3)&#xa;is_primary : BOOLEAN&#xa;is_verified : BOOLEAN&#xa;created_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="770" y="1700" width="270" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="host_payouts" value="AIRBnB_Host.payouts&#xa;────────────&#xa;payout_id : BIGINT (PK)&#xa;payout_method_id : BIGINT (FK→payout_methods.payout_method_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;payout_amount : DECIMAL(10,2)&#xa;currency_code : CHAR(3)&#xa;payout_status : ENUM&#xa;processed_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="1700" width="270" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="host_ledgers" value="AIRBnB_Host.ledgers&#xa;────────────&#xa;ledger_id : BIGINT (PK)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;amount : DECIMAL(10,2)&#xa;transaction_type : ENUM&#xa;transaction_date : TIMESTAMP&#xa;balance_after : DECIMAL(10,2)" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1350" y="1700" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="host_reviews" value="AIRBnB_Host.review_moderations&#xa;────────────&#xa;moderation_id : BIGINT (PK)&#xa;review_id : BIGINT (FK→AIRBnB_Common.reviews.review_id)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;moderation_status : ENUM&#xa;reason : TEXT&#xa;created_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="110" y="2350" width="270" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="host_messages" value="AIRBnB_Host.messages&#xa;────────────&#xa;message_id : BIGINT (PK)&#xa;sender_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;receiver_id : BIGINT (FK→AIRBnB_Common.users.user_id)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;message_text : TEXT&#xa;sent_at : TIMESTAMP&#xa;read_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="850" y="2490" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="host_maintenance" value="AIRBnB_Host.maintenance_logs&#xa;────────────&#xa;log_id : BIGINT (PK)&#xa;listing_id : BIGINT (FK→AIRBnB_Common.listings.listing_id)&#xa;issue_type : ENUM&#xa;description : TEXT&#xa;status : ENUM&#xa;logged_at : TIMESTAMP&#xa;resolved_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="780" y="2020" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="host_disputes" value="AIRBnB_Host.disputes&#xa;────────────&#xa;dispute_id : BIGINT (PK)&#xa;booking_id : BIGINT (FK→AIRBnB_Common.bookings.booking_id)&#xa;initiated_by : ENUM&#xa;issue_description : TEXT&#xa;resolution_status : ENUM&#xa;resolved_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1070" y="2020" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="host_support" value="AIRBnB_Host.support_cases&#xa;────────────&#xa;case_id : BIGINT (PK)&#xa;host_id : BIGINT (FK→AIRBnB_Common.hosts.host_id)&#xa;subject : VARCHAR(255)&#xa;description : TEXT&#xa;status : ENUM&#xa;created_at : TIMESTAMP&#xa;resolved_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#ebdef0;strokeColor=#884ea0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1360" y="2020" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_profiles" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_profiles" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_payouts" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_payouts" target="bookings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_ledgers" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_ledgers" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_listings_settings" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_listings_settings" target="listings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_payout_methods" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_payout_methods" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_reviews" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_reviews" target="reviews" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_messages" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_messages" target="users" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_maintenance" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_maintenance" target="listings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_disputes" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_disputes" target="bookings" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_host_support" style="edgeStyle=elbowEdgeStyle;rounded=1;strokeColor=#884ea0;endArrow=block;endFill=1;" parent="1" source="host_support" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="users" value="AIRBnB_Common.users&#xa;────────────&#xa;user_id : BIGINT (PK)&#xa;email : VARCHAR(255)&#xa;password_hash : VARCHAR(255)&#xa;first_name : VARCHAR(100)&#xa;last_name : VARCHAR(100)&#xa;phone_number : VARCHAR(20)&#xa;date_of_birth : DATE&#xa;user_type : ENUM&#xa;auth_provider : ENUM&#xa;provider_user_id : VARCHAR(255)&#xa;is_email_verified : BOOLEAN&#xa;is_phone_verified : BOOLEAN&#xa;created_at : TIMESTAMP&#xa;updated_at : TIMESTAMP&#xa;last_login_at : TIMESTAMP" style="shape=swimlane;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;horizontal=1;whiteSpace=wrap;container=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="2970" width="250" height="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

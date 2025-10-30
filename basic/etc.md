@@ -4,6 +4,7 @@
 원유정 매니져님
 
 ----
+이재호님 노션 - https://www.notion.so/_-_-29b57922b23580ebabaafc453490bb28
 
 ysk8104@naver.com / 12341234
 ssukyoung14@gmail.com/qlalfqjsgh1@
@@ -23,6 +24,8 @@ https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%
 
 성동3 엑셀 파일 - https://docs.google.com/spreadsheets/d/135xH2tNi5oBR7ZxobPm1Hfu4P-DcWi6ir9yFET5sBqU/edit?gid=1714071338#gid=1714071338
 오창희쌤 git - https://github.com/SESAC-SD3
+모카루 - https://www.mockaroo.com/
+
 ----
 
 깃 리스트

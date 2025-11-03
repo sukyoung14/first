@@ -64,7 +64,9 @@ getProducts();
 # 리액트
 
  ##  JSX 보간법 : {}
+ 
  ##  명명 규칙 : handle
+ 
  ##  컴포넌트 : import MyList from "./components/Component/MyList"; MyList명은 대문자로 시작해야 한다.
 - ```event 함수에서 value 값
   const elements = event["target"]["elements"];
@@ -276,6 +278,16 @@ ysk8104@naver.com / 12341234
             {message.content}
           </ReactMarkdown> ```
   // useRef  훅 : document.querySelector() -> 요소를 선택
+  // const element = document.querySelector("div");
+  ### 노드 선택
+  ```
+  element.getAttribute("속성명"); // 속성 값 읽기
+	element.setAttribute("속성명", "새로운 값"); // 속성 값 조작
+	element.속성명 = "새로운 값"; // 속성 값 조작
+  element.classList.add("클래스명"); // 클래스 추가
+	element.classList.remove("클래스명"); // 클래스 제거
+	element.classList.toggle("클래스명"); // 클래스 토글 (있으면 제거, 없으면 추가)
+	element.classList.contains("클래스명"); // 클래스 포함 여부 확인```
  // 응답 메시지가 추가되면 최하단으로 스크롤
  ````    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); ```` 
  ### axios로 DB 저장
@@ -463,3 +475,25 @@ createRoot(document.getElementById("root")).render(
  ### useSelector - 스토어(store)에서 상태를 가져오는 훅
    ``` import { useSelector } from "react-redux";
  const state = useSelector((state) => state.상태);  ``` 
+ 
+ # Java
+- int million = 1_000_000;     // 언더스코어로 가독성 향상 (Java 7+)
+- float f = 3.14f;      // f 또는 F 접미사 필수
+- // 특수 문자
+	char newLine = '\n';     // 줄바꿈
+	char tab = '\t';         // 탭
+	char backslash = '\\';   // 백슬래시
+	char quote = '\'';       // 작은따옴표
+- double dB = 3.14;
+   int iB = (int) dB;     // 강제 형변환
+- str1.equals(str2) //     문자열 비교
+- && 연산: 첫 번째가 false면 두 번째 평가 안 함
+- || 연산: 첫 번째가 true면 두 번째 평가 안 함
+- 삼항연산자 : 조건식 ? 참일_때_값 : 거짓일_때_값
+- switch문
+	``` String season = switch (month){
+            case 3,4,5 -> "봄";
+            case 6,7,8 -> "여름";
+            default -> "잘못된 월";
+        }; ```
+        

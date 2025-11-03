@@ -27,6 +27,7 @@ https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%
 모카루 - https://www.mockaroo.com/
 ERD https://draw.io/ - https://app.diagrams.net/ 
 이재호님 노션 - https://www.notion.so/_-_-29b57922b23580ebabaafc453490bb28
+
 ----
 
 깃 리스트
@@ -489,4 +490,12 @@ ssukyoung14@gmail.com / 123123
  3. 퍼널 (Funnel)
 	의미: 사용자가 목표 달성 과정에서 거치는 단계를 깔때기(Funnel) 모양으로 시각화한 것.
 	활용: 사용자가 어느 단계에서 이탈하는지 파악하여 문제점을 발견하고 개선하는 데 사용됩니다. 예를 들어, 회원가입 퍼널을 분석하면 어느 단계에서 사용자들이 가장 많이 이탈하는지 알 수 있습니다. 
-	
+
+## 2025-11-03 JAVA
+ - IntelliJ  :  https://www.jetbrains.com/idea/
+	설치 옵션  - 전부 체크 
+	설정 -> 구독관리 -> 계정로그인 -> 라이센스 받기 -> 인터넷 새창에서 : https://www.jetbrains.com/store/redeem/
+	: K3CHN-95JYD-UJSKW-9TLD2-G7VEG - 6개월 사용가능
+ - 새 프로젝트 - JDK : 21버젼 공급업체는 아무거나
+ - 파일 > 설정 : 모양 및 동작 : 
+ - https://start.spring.io/

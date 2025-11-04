@@ -4,8 +4,8 @@
 원유정 매니져님
 
 ----
-
-
+KODEX 레버리지	46470
+hojin0104/qlalfqjsgh1@ https://ged.kedi.re.kr/index.do
 ysk8104@naver.com / 12341234
 ssukyoung14@gmail.com/qlalfqjsgh1@
 https://github.com/ - ssukyoung14@gmail.com/qlalfqjsgh1@@@
@@ -37,6 +37,7 @@ ctrl+j : terminal
 
 ----
 ----
+git init
 git remote add origin https://github.com/SESAC-SD3/SQL.git 
 	- git pull origin main		
 ----
@@ -94,16 +95,13 @@ Gemini CLI에 로그인할 계정을 선택
 ----
 
 점심
-김재현
 김현중
 이재호
 
 ----
 
 우리줄
-오승우
 강연주
-강동균
 
 ----
 피자 
@@ -499,3 +497,4 @@ ssukyoung14@gmail.com / 123123
  - 새 프로젝트 - JDK : 21버젼 공급업체는 아무거나
  - 파일 > 설정 : 모양 및 동작 : 
  - https://start.spring.io/
+ 

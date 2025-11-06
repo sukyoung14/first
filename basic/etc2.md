@@ -540,3 +540,23 @@ int iB = (int) dB;     // 강제 형변환
 - // do-while : 조건을 나중에 검사하므로 최소 1회는 실행됩니다.
 // 각 문자에서 '0'의 아스키 값을 빼면 실제 숫자 값이 됨
     sum += strNum.charAt(i) - '0';
+- 배열		``` int[] nums = {5, 2, 1, 7, 8}; ```
+	1. toString() - 배열을 문자열로		``` Arrays.toString(numbers) ```
+	2. sort() - 정렬  ``` Arrays.sort(numbers); ```
+	3. binarySearch() - 이진 탐색 (정렬된 배열에서) 위치 찾기 	``` Arrays.binarySearch(numbers, 5); ```
+	4. equals() - 배열 비교		```	Arrays.equals(arr1, arr2) ```
+	5. deepToString() - 다차원 배열 출력
+		``` int[][] matrix = {{1, 2}, {3, 4}};
+        System.out.println("2차원 배열: " + Arrays.deepToString(matrix)); ```
+- 2차원 배열
+        ``` int[][] matrix = {  {1, 2, 3}, {4, 5, 6}  };
+		for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                sum += matrix[i][j];
+            }
+        }	``` 
+- 가변인자
+``` int add (int a, int b) { return a + b; } ``` 
+``` int add (int... numbers){        return sum; } ``` 
+	// 컴파일 에러! 가변 인자 뒤에 다른 매개변수 불가, 가변 인자는 하나만
+    // void method2(int... scores, String name) { }

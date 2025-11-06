@@ -1,5 +1,7 @@
 package a.basic;
 
+import java.util.Arrays;
+
 public class Array {
     public static void main(String[] args) {
         int [] numbers = new int[5];
@@ -54,6 +56,38 @@ public class Array {
             }
             System.out.println();
         }
+        int[] nums = {5, 2, 1, 7, 8};
+        System.out.println(Arrays.toString(nums));
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
+        int idx = Arrays.binarySearch(nums, 5);
+        System.out.println(idx);
+
+        int[] filled = new int[10];
+        Arrays.fill(filled, 99);
+        System.out.println(Arrays.toString(filled));
+
+        int[] origin = {1,2,3,4,5};
+        int[] copied = Arrays.copyOf(origin, origin.length);
+        System.out.println(Arrays.toString(copied));
+
+        int[] copied2 = origin;
+        System.out.println(Arrays.toString(copied2));
+        origin[0] = 100;
+        System.out.println(Arrays.toString(origin));
+        System.out.println(Arrays.toString(copied));
+        System.out.println(Arrays.toString(copied2));
+
+        int[] ranged = Arrays.copyOfRange(origin, 1, 3);
+        System.out.println(Arrays.toString(ranged));
+
+        int[] arrA = {1, 2, 3};
+        int[] arrB = {1, 2, 3};
+        System.out.println(arrA == arrB);
+        System.out.println(Arrays.equals(arrA, arrB));
+
+        int[][] mat = { {1, 2},{3, 4} };
+        System.out.println(Arrays.deepToString(mat));
 
     }
 }

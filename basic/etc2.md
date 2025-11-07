@@ -66,6 +66,14 @@ npm install axios
 getProducts();
 
 ````
+- 객체 : Object.keys() - 객체의 모든 이름(key)을 배열로 반환
+	Object.values() - 	객체의 모든 값(value)을 배열로 반환
+	Object.entries() - 객체의 모든 [이름(key), 값(value)] 쌍을 배열로 반환
+	for...in - 객체(Object)의 모든 이름(key)을 순회
+	```` const person = { name: "홍길동", age: 30, city: "서울" };
+	for (let key in person) {
+	  console.log(`${key}`);
+	}	````
 
 # 리액트
 

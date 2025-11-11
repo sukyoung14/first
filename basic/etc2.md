@@ -568,3 +568,14 @@ int iB = (int) dB;     // 강제 형변환
 ``` int add (int... numbers){        return sum; } ``` 
 	// 컴파일 에러! 가변 인자 뒤에 다른 매개변수 불가, 가변 인자는 하나만
     // void method2(int... scores, String name) { }
+-- 상속
+ ```  class Cat extends Animal {}  ``` 
+	// 다운캐스팅 전에 타입 확인
+ ```         if (animal instanceof Dog) {
+            Dog dog = (Dog) animal;
+            dog.bark();  // 안전하게 실행
+        } ``` 
+-- 추상화
+ ``` 	abstract class Vehicle4 {
+			abstract void start();
+		} ``` 

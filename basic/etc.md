@@ -2,7 +2,11 @@
 오창희 강사님
 정우영 강사 연락처 : 010-8821-2515
 원유정 매니져님
+----
+1. Visual Studio code 에서 java 실행하는 방법
+2. Visual Studio 에서 명령프롬프트? 에서 물음표 하고 변수명을 쓰면 출력되는게..다른데에서도 있을까요?
 
+태권도 - https://tkdcon.net/ - hojin0104-qlalfqjsgh1@
 ----
 KODEX 레버리지	46470
 hojin0104/qlalfqjsgh1@ https://ged.kedi.re.kr/index.do

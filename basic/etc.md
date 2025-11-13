@@ -31,6 +31,8 @@ https://www.inflearn.com/ko/?NaPm=ct%3Dmfoxez9m%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%
 모카루 - https://www.mockaroo.com/
 ERD https://draw.io/ - https://app.diagrams.net/ 
 이재호님 노션 - https://www.notion.so/_-_-29b57922b23580ebabaafc453490bb28
+코딩테스트 연습 - https://school.programmers.co.kr/learn/challenges?order=recent
+최신트랜드 - https://news.hada.io/
 
 ---- JAVA
  - IntelliJ  :  https://www.jetbrains.com/idea/

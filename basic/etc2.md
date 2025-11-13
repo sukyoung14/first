@@ -568,14 +568,60 @@ int iB = (int) dB;     // 강제 형변환
 ``` int add (int... numbers){        return sum; } ``` 
 	// 컴파일 에러! 가변 인자 뒤에 다른 매개변수 불가, 가변 인자는 하나만
     // void method2(int... scores, String name) { }
--- 상속
+- 상속
  ```  class Cat extends Animal {}  ``` 
 	// 다운캐스팅 전에 타입 확인
  ```         if (animal instanceof Dog) {
             Dog dog = (Dog) animal;
             dog.bark();  // 안전하게 실행
         } ``` 
--- 추상화
+- 추상화
  ``` 	abstract class Vehicle4 {
 			abstract void start();
 		} ``` 
+- 인터페이스(Interface) - 모든 클래스를 추상클래스로 만듬
+ ``` 	interface  Animal6 { }
+	class Dog66 implements Amimal6{ }  ``` 
+- 제네릭 
+ ``` class Container<T> {
+	 public Container(T value) {
+			this.value = value;
+		}
+	} ``` 
+	 ```       Box2<String> box = new Box2<String>(); 	```
+	 ```       Box2<Integer> box = new Box2<Integer>(); 	```
+ ``` 두가지 값 
+	class pair<K,V>{
+		private K key;
+		private V value;
+	}	 ```  
+	 ``` 	상속 메서드
+	class child<T> extends parent<T> {  }		
+
+	public Pair<V,K> swap(){
+        return new Pair<>(value, key);
+    }
+	```
+	
+	``` public Pair<V,K> swap(){
+        return new Pair<>(value, key);
+    } ```
+```		배열
+	public static <T> void printArray(T[] array) {
+        for (T element : array) {
+            System.out.print(element + " ");
+        }
+    }	```
+```	public static <T> T getFirst(T[] array){
+        if (array.length == 0 || array[0] == null){
+            return null;
+        }
+        return array[0];
+    }	```
+
+	- 숫자형인지? : instanceof 기준으로 왼쪽 객체가 생성될 때 오른쪽 타입으로 생성되었는지 확인하는 연산자입니다.
+ if (score instanceof Number){ return true; }
+ return first.equals(second); // 같나요?
+ - 배열
+                 ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(5, 3, 9, 1, 7));
+

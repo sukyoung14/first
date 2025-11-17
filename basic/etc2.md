@@ -568,21 +568,22 @@ int iB = (int) dB;     // 강제 형변환
 ``` int add (int... numbers){        return sum; } ``` 
 	// 컴파일 에러! 가변 인자 뒤에 다른 매개변수 불가, 가변 인자는 하나만
     // void method2(int... scores, String name) { }
-- 상속
+- 상속 - extends 사용
  ```  class Cat extends Animal {}  ``` 
 	// 다운캐스팅 전에 타입 확인
  ```         if (animal instanceof Dog) {
             Dog dog = (Dog) animal;
             dog.bark();  // 안전하게 실행
         } ``` 
-- 추상화
+- 추상 클래스 - 나중에 구현해주는 메서드
  ``` 	abstract class Vehicle4 {
 			abstract void start();
 		} ``` 
-- 인터페이스(Interface) - 모든 클래스를 추상클래스로 만듬
+- 인터페이스(Interface)implements 사용 - 모든 클래스를 추상클래스로 만듬
  ``` 	interface  Animal6 { }
 	class Dog66 implements Amimal6{ }  ``` 
-- 제네릭 
+- 컴포지션(Composition) - 한 클래스가 다른 클래스의 객체를 자신의 필드로 참조해서 사용하는 것
+- 제네릭(Generic) - 제네릭은 클래스나 메서드를 작성할 때, 사용할 데이터의 타입을 미리 정하지 않고,객체를 생성할 때(또는 메서드를 호출할 때) 구체적인 타입을 지정하는 기능
  ``` class Container<T> {
 	 public Container(T value) {
 			this.value = value;
@@ -622,6 +623,76 @@ int iB = (int) dB;     // 강제 형변환
 	- 숫자형인지? : instanceof 기준으로 왼쪽 객체가 생성될 때 오른쪽 타입으로 생성되었는지 확인하는 연산자입니다.
  if (score instanceof Number){ return true; }
  return first.equals(second); // 같나요?
- - 배열
-                 ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(5, 3, 9, 1, 7));
+ - 배열 (ArrayList)
+```	 ArrayList<String> list = new ArrayList<>();
+	 ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(5, 3, 9, 1, 7));
+	list.add("Cherry"); ```
+- LinkedList 
+```	LinkedList<String> list = new LinkedList<>();
+	LinkedList<Integer> list1 = new LinkedList<>(Arrays.asList(5, 3, 9, 1, 7)); ```
+- HashSet : 중복제거, 순서보장X
+```		HashSet<String> set = new HashSet<>();
+	HashSet<Integer> list1 = new HashSet<>(Arrays.asList(5, 3, 9, 1, 7)); ```	
+- LinkedHashSet : 중복제거, 입력순서대로
+ ```		LinkedHashSet<String> linkedSet = new LinkedHashSet<>(); ```	
+- TreeSet : 중복제거, 정렬순서대로
+ ```		TreeSet<String> linkedSet = new TreeSet<>(); ```	
+- HashMap : 키-값 쌍을 저장
+ ```		HashMap<String, Integer> map = new HashMap<>();
+	map.put("Apple", 1000);	```
+- LinkedHashMap : 	삽입 순서를 추가
+ ```		HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Banana", 2); ```	
+- TreeMap : 	정렬된 순서로 저장(자동정렬)  key 값에 따른 1,2,3,4로 출력
+```			TreeMap<String, Integer> map = new TreeMap<>();
+		map.put("1", 1500);		
+        map.put("3", 1000);
+        map.put("4", 2000);
+        map.put("2", 2500);	```
+# Spring Boot
+```	@RestController
+@SpringBootApplication
+public class DemoApplication {
 
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+    @GetMapping("/hello")
+    public String hello(@RequestParam String name) {
+        return String.format("Hello %s!", name);
+    }
+
+}	```	
+- model 사용
+```	 import org.springframework.ui.Model;
+@GetMapping("/hello")
+    public String hello(Model model){
+        String name = "changhee";
+        model.addAttribute("name",name);
+        return "hello";
+    }
+<html lang="en" xmlns:tn="http://www.thymeleaf.org">
+<h1 th:text="${name}">!</h1> ```	
+- 배열 
+``` 	List<String> fruitList = new ArrayList<>();
+        fruitList.add("apple");
+		<li th:each="fruit : ${fruitList}" th:text="${fruit}"></li>```
+ ```       List<String> menus = Arrays.asList("김밥","라면","돈까스");```
+```		List<Integer> numbers = IntStream.range(1,46)
+                .boxed()            // int -> Integer형변환
+                .collect(Collectors.toList());  // 배열로 변환```
+		
+- if
+```  <p th:if="${score > 90}">1등급</p> ``` 
+-  PathVariable : http://localhost:8080/profile/1234
+```	@GetMapping("/profile/{username}")
+    public String profile(@PathVariable String username, Model model){
+        model.addAttribute("username",username);
+        return "profile";
+    }	```
+-  PathVariable : http://localhost:8080/pong?title=123&content=234
+```	 @GetMapping("/pong")
+    public String pong(@RequestParam String title, @RequestParam String content, Model model){
+        model.addAttribute("title",title);
+        return "pong";
+    }	```

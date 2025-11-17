@@ -33,7 +33,7 @@ ERD https://draw.io/ - https://app.diagrams.net/
 이재호님 노션 - https://www.notion.so/_-_-29b57922b23580ebabaafc453490bb28
 코딩테스트 연습 - https://school.programmers.co.kr/learn/challenges?order=recent
 최신트랜드 - https://news.hada.io/
-
+Spring Boot - https://spring.io/projects/spring-boot
 ---- JAVA
  - IntelliJ  :  https://www.jetbrains.com/idea/
 	설치 옵션  - 전부 체크 
@@ -506,4 +506,24 @@ ssukyoung14@gmail.com / 123123
 
 ## 2025-11-03 JAVA
 
- 
+## 2025-11-17 Spring Boot
+ - 환경설정 path 설정하기 
+	1. 파일 -> 프로젝트 구조 : 플렛폼 설정 - SDK : ms-21 -> 홈경로 : C:\Users\nodecrew\.jdks\ms-21.0.8
+	2. 시스템환경변수 편집 -> 환경변수 -> 시스템변수 > 새로만들기
+		- 변수이름 : JAVA_HOME, 변수값 : C:\Users\nodecrew\.jdks\ms-21.0.8 확인
+		- 터미널에서 확인 : echo $JAVA_HOME
+		- path -> 편집 : 새로 만들기 : %HAVA_HOME%\bin
+		- java --version 확인
+ - https://start.spring.io/	
+ - 열기 : 버젼 : 21, Add dependencies... : Spring Web, GENERATE 버튼 클릭
+ 파일 압축 해제 후 : JAVA -> 열기 -> 해당경로에서  build.gradle를 선택
+ - 새프로젝트 : 제너레이터 - Spring Boot - 이름, 위치, java: 21로  변경
+ 종속성 : spring web, Spring Boot Devtools, thymeleaf 추가 확인
+ * Spring Boot 없을 시 - 설정 > 플러그인 Spring Boot 설치
+ - 탬플릿 설정
+	- 파일 > 설정 > 에디터 > 라이브 탬플릿 
+	플러스 > 템플릿 그룹 > thymeleaf
+	템플릿 라이브 > thymeleaf > 약어 : thhtml
+	정의 : HTML
+	- 파일 및 코드 탬플릿 > html 
+	

@@ -6,12 +6,19 @@
 
 # GIT
 
-    - 윈도우 > 터미널에서 열기 : windows powershell로 열림
-    - 터미널에서 git bash를 기본값으로 하는 법 : https://velog.io/@alsry922/Windows-Terminal%EC%97%90-git-bash-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0
-    ``` 가져오기
-    - git init
-    - git remote add origin https://github.com/SESAC-SD3/SQL.git
-    - git pull origin main		```
+- 윈도우 > 터미널에서 열기 : windows powershell로 열림
+- 터미널에서 git bash를 기본값으로 하는 법 : https://velog.io/@alsry922/Windows-Terminal%EC%97%90-git-bash-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0
+
+```가져오기
+- git init
+- git remote add origin https://github.com/SESAC-SD3/SQL.git
+- git pull origin main
+
+-  git remote -v  	// 현재 등록된 remote 목록 확인
+- git remote remove origin  // origin 삭제
+- git status
+
+```
 
 # HTML
 
@@ -22,9 +29,10 @@
   2.  속성 : 요소의 추가 특성을 나타내고, 시작 태그 내부에 작성한다.
   3.  내용 : 화면에 표시할 텍스트 또는 또 다른 요소를 작성한다.
 
-````onChange={(e) => {
+````
+    onChange={(e) => {
          setPayload(e.target.value);
-       }}```
+       }} ```
 # CSS
 
 - font-weight : b태그 - 굵기 지정
@@ -70,10 +78,10 @@ getProducts();
 	Object.values() - 	객체의 모든 값(value)을 배열로 반환
 	Object.entries() - 객체의 모든 [이름(key), 값(value)] 쌍을 배열로 반환
 	for...in - 객체(Object)의 모든 이름(key)을 순회
-	```` const person = { name: "홍길동", age: 30, city: "서울" };
+	``` const person = { name: "홍길동", age: 30, city: "서울" };
 	for (let key in person) {
 	  console.log(`${key}`);
-	}	````
+	}	```
 
 # 리액트
 
@@ -286,7 +294,7 @@ const [searchParams, setSearchParams] = useSearchParams(); ```
             }
           }}
 
-`````
+````
  ## Redux
  ### Redux Toolkit
 - https://redux-toolkit.js.org/
@@ -309,14 +317,14 @@ ysk8104@naver.com / 12341234
 ### 마크 다운 표현으로 해줌
    ``` npm install react-markdown remark-gfm	```
 	/chat-bot-app/src/index.css에 /* 마크다운 스타일링 */
-```` import ReactMarkdown from "react-markdown";
+``` import ReactMarkdown from "react-markdown";
 <ReactMarkdown remarkPlugins={[remarkGfm]}>
            {message.content}
          </ReactMarkdown> ```
  // useRef  훅 : document.querySelector() -> 요소를 선택
  // const element = document.querySelector("div");
  ### 노드 선택
-`````
+````
 
 element.getAttribute("속성명"); // 속성 값 읽기
 element.setAttribute("속성명", "새로운 값"); // 속성 값 조작
@@ -536,15 +544,15 @@ int iB = (int) dB;     // 강제 형변환
          default -> "잘못된 월";
      }; ```
 - for문 - index 접근
-````	for (int i = 0; i < 10; i++) { }
+```	for (int i = 0; i < 10; i++) { }
 		for (int i = 10; i >= 1; i--) { }
 		for  (int i = 0; i < 10; i+=2) { }
-		for (int i = 0, j = 10;  i < j; i++, j--) { }		````
+		for (int i = 0, j = 10;  i < j; i++, j--) { }		```
 - enhanced for(향상된 for문) - 요소 반복
-````		int[] numbers = {10, 20, 30, 40, 50};
+```		int[] numbers = {10, 20, 30, 40, 50};
 		 for (int num : numbers) {
 					System.out.println(num);
-				}		````
+				}		```
 - // do-while : 조건을 나중에 검사하므로 최소 1회는 실행됩니다.
 // 각 문자에서 '0'의 아스키 값을 빼면 실제 숫자 값이 됨
     sum += strNum.charAt(i) - '0';
@@ -562,48 +570,48 @@ int iB = (int) dB;     // 강제 형변환
             for (int j = 0; j < matrix[i].length; j++) {
                 sum += matrix[i][j];
             }
-        }	``` 
+        }	```
 - 가변인자
-``` int add (int a, int b) { return a + b; } ``` 
-``` int add (int... numbers){        return sum; } ``` 
+``` int add (int a, int b) { return a + b; } ```
+``` int add (int... numbers){        return sum; } ```
 	// 컴파일 에러! 가변 인자 뒤에 다른 매개변수 불가, 가변 인자는 하나만
     // void method2(int... scores, String name) { }
 - 상속 - extends 사용
- ```  class Cat extends Animal {}  ``` 
+ ```  class Cat extends Animal {}  ```
 	// 다운캐스팅 전에 타입 확인
  ```         if (animal instanceof Dog) {
             Dog dog = (Dog) animal;
             dog.bark();  // 안전하게 실행
-        } ``` 
+        } ```
 - 추상 클래스 - 나중에 구현해주는 메서드
  ``` 	abstract class Vehicle4 {
 			abstract void start();
-		} ``` 
+		} ```
 - 인터페이스(Interface)implements 사용 - 모든 클래스를 추상클래스로 만듬
  ``` 	interface  Animal6 { }
-	class Dog66 implements Amimal6{ }  ``` 
+	class Dog66 implements Amimal6{ }  ```
 - 컴포지션(Composition) - 한 클래스가 다른 클래스의 객체를 자신의 필드로 참조해서 사용하는 것
 - 제네릭(Generic) - 제네릭은 클래스나 메서드를 작성할 때, 사용할 데이터의 타입을 미리 정하지 않고,객체를 생성할 때(또는 메서드를 호출할 때) 구체적인 타입을 지정하는 기능
  ``` class Container<T> {
 	 public Container(T value) {
 			this.value = value;
 		}
-	} ``` 
+	} ```
 	 ```       Box2<String> box = new Box2<String>(); 	```
 	 ```       Box2<Integer> box = new Box2<Integer>(); 	```
- ``` 두가지 값 
+ ``` 두가지 값
 	class pair<K,V>{
 		private K key;
 		private V value;
-	}	 ```  
+	}	 ```
 	 ``` 	상속 메서드
-	class child<T> extends parent<T> {  }		
+	class child<T> extends parent<T> {  }
 
 	public Pair<V,K> swap(){
         return new Pair<>(value, key);
     }
 	```
-	
+
 	``` public Pair<V,K> swap(){
         return new Pair<>(value, key);
     } ```
@@ -627,25 +635,25 @@ int iB = (int) dB;     // 강제 형변환
 ```	 ArrayList<String> list = new ArrayList<>();
 	 ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(5, 3, 9, 1, 7));
 	list.add("Cherry"); ```
-- LinkedList 
+- LinkedList
 ```	LinkedList<String> list = new LinkedList<>();
 	LinkedList<Integer> list1 = new LinkedList<>(Arrays.asList(5, 3, 9, 1, 7)); ```
 - HashSet : 중복제거, 순서보장X
 ```		HashSet<String> set = new HashSet<>();
-	HashSet<Integer> list1 = new HashSet<>(Arrays.asList(5, 3, 9, 1, 7)); ```	
+	HashSet<Integer> list1 = new HashSet<>(Arrays.asList(5, 3, 9, 1, 7)); ```
 - LinkedHashSet : 중복제거, 입력순서대로
- ```		LinkedHashSet<String> linkedSet = new LinkedHashSet<>(); ```	
+ ```		LinkedHashSet<String> linkedSet = new LinkedHashSet<>(); ```
 - TreeSet : 중복제거, 정렬순서대로
- ```		TreeSet<String> linkedSet = new TreeSet<>(); ```	
+ ```		TreeSet<String> linkedSet = new TreeSet<>(); ```
 - HashMap : 키-값 쌍을 저장
  ```		HashMap<String, Integer> map = new HashMap<>();
 	map.put("Apple", 1000);	```
 - LinkedHashMap : 	삽입 순서를 추가
  ```		HashMap<String, Integer> hashMap = new HashMap<>();
-        hashMap.put("Banana", 2); ```	
+        hashMap.put("Banana", 2); ```
 - TreeMap : 	정렬된 순서로 저장(자동정렬)  key 값에 따른 1,2,3,4로 출력
 ```			TreeMap<String, Integer> map = new TreeMap<>();
-		map.put("1", 1500);		
+		map.put("1", 1500);
         map.put("3", 1000);
         map.put("4", 2000);
         map.put("2", 2500);	```
@@ -662,7 +670,7 @@ public class DemoApplication {
         return String.format("Hello %s!", name);
     }
 
-}	```	
+}	```
 - model 사용
 ```	 import org.springframework.ui.Model;
 @GetMapping("/hello")
@@ -672,8 +680,8 @@ public class DemoApplication {
         return "hello";
     }
 <html lang="en" xmlns:tn="http://www.thymeleaf.org">
-<h1 th:text="${name}">!</h1> ```	
-- 배열 
+<h1 th:text="${name}">!</h1> ```
+- 배열
 ``` 	List<String> fruitList = new ArrayList<>();
         fruitList.add("apple");
 		<li th:each="fruit : ${fruitList}" th:text="${fruit}"></li>```
@@ -681,18 +689,19 @@ public class DemoApplication {
 ```		List<Integer> numbers = IntStream.range(1,46)
                 .boxed()            // int -> Integer형변환
                 .collect(Collectors.toList());  // 배열로 변환```
-		
+
 - if
-```  <p th:if="${score > 90}">1등급</p> ``` 
+```  <p th:if="${score > 90}">1등급</p> ```
 -  PathVariable : http://localhost:8080/profile/1234
 ```	@GetMapping("/profile/{username}")
     public String profile(@PathVariable String username, Model model){
         model.addAttribute("username",username);
         return "profile";
     }	```
--  PathVariable : http://localhost:8080/pong?title=123&content=234
+-  get방식 : http://localhost:8080/pong?title=123&content=234
 ```	 @GetMapping("/pong")
     public String pong(@RequestParam String title, @RequestParam String content, Model model){
         model.addAttribute("title",title);
         return "pong";
     }	```
+````

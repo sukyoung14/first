@@ -35,7 +35,38 @@ ERD https://draw.io/ - https://app.diagrams.net/
 코딩테스트 연습 - https://school.programmers.co.kr/learn/challenges?order=recent
 최신트랜드 - https://news.hada.io/
 Spring Boot - https://spring.io/projects/spring-boot
+openAI status - https://status.openai.com/
 =======
+Thymeleaf Layout Dialect 설치
+- build.gradle 파일 dependencies 안에  // implementation 'GroupId:ArtifactId'
+implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' 
+넣고 gradle 변경사항 동기화 ctrl + shift + o
+- \src\main\resources\templates\layout\default.html 파일에
+```
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <div layout:fragment="content">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>		```
+- 사용파일에
+```
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+	<div layout:fragment="content">
+	</div>
+</html>	```
+Bootstrap - Include via CDN : https://getbootstrap.com/
+
+=======
+
+
 
 >>>>>>> parent of 984aed4 (java 제네릭 & 컬렉션)
 ---- JAVA

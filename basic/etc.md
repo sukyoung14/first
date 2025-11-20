@@ -39,7 +39,7 @@ openAI status - https://status.openai.com/
 =======
 Thymeleaf Layout Dialect 설치
 - build.gradle 파일 dependencies 안에  // implementation 'GroupId:ArtifactId'
-implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' 
+implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 넣고 gradle 변경사항 동기화 ctrl + shift + o
 - \src\main\resources\templates\layout\default.html 파일에
 ```
@@ -65,11 +65,37 @@ implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 Bootstrap - Include via CDN : https://getbootstrap.com/
 
 =======
+# H2 Database DB 셋팅
+- build.gradle 파일 dependencies 에 스타터 추가
+spring data jpa
+h2 Database
+\springboot\todoapp\src\main\resources\application.properties 파일에
+```
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+
+server.servlet.encoding.charset=UTF-8
+server.servlet.encoding.enabled=true
+server.servlet.encoding.force=true
+```
+- http://localhost:8080/h2-console 
+ JDBC URL: jdbc:h2:mem:testdb 변경 후
+ connect 버튼 클릭
+
+=======
 
 
 
 >>>>>>> parent of 984aed4 (java 제네릭 & 컬렉션)
----- JAVA
+---- # JAVA
  - IntelliJ  :  https://www.jetbrains.com/idea/
 	설치 옵션  - 전부 체크 
 	설정 -> 구독관리 -> 계정로그인 -> 라이센스 받기 -> 인터넷 새창에서 : https://www.jetbrains.com/store/redeem/

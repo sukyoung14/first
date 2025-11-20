@@ -1,12 +1,20 @@
+## 새프로젝트
+
+- 버젼 : 21
+- 종속성 : spring web, Spring Boot Devtools, thymeleaf 추가 확인
+
 ## **패키지 & 파일생성**
 
-- com.example.crud.controller.TodoController
-- com.example.crud.repository.TodoappApplication
-- com.example.crud.dto.TodoDto
+- 위치 : com.example.프로젝트명
+- controller.TodoController
+- dto.TodoDto
+- repository.TodoRepository
+- service.TodoService
 
 ## **TodoDto 설정**
 
 - private Long id; private String title; private String content; private boolean completed; 넣고 생성자 Getter & Setter 만들어줌
+- public TodoDto() {}
 
 ## **TodoController 설정**
 
@@ -14,16 +22,17 @@
 @Controller
 @RequestMapping("/todos")
 public class TodoController {
-	private TodoRepository todoRepository;
+	private final TodoService todoService;
 
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
     }
 
     @GetMapping("")
     public String todos(Model model){
-        //List<TodoDto> todoDtos = todoRepository.findAll();
-        //model.addAttribute("todos", todoDtos);
+        List<TodoDto> todoDtos = todoService.getAllTodos();
+        model.addAttribute("todos", todoDtos);
+        model.addAttribute("totalCount", todoService.getTotalCount());
         return "todos";
     }
 }
@@ -37,19 +46,48 @@ public class TodoRepository {
     private final Map<Long, TodoDto> storage = new ConcurrentHashMap<>();
     private Long nextId = 1L;
 }
+```
+
 ## CrudApplication 설정
+
 @SpringBootApplication
+
+```
 public class CrudApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TodoappApplication.class, args);
     }
-    @Bean
     public CommandLineRunner init(TodoRepository todoRepository) {
         return args -> {
-//            todoRepository.save(new TodoDto(null, "study", "JAVA" , false));
+            todoRepository.save(new TodoDto(null, "study", "JAVA" , false));
         };
     }
+
+}
+
+```
+
+## TodoService 설정\*\*
+
+```
+
+@Service
+public class TodoService {
+private final TodoRepository todoRepository;
+public TodoService(TodoRepository todoRepository) {
+this.todoRepository = todoRepository;
+}
+
+    public List<TodoDto> getAllTodos() {
+        List<TodoDto> todoDtoList = new ArrayList<>();
+        todoDtoList =  todoRepository.findAll();
+        return todoDtoList;
+    }
+    public long getTotalCount(){
+        return todoRepository.findAll().size();
+    }
+
 }
 
 ```
@@ -59,33 +97,50 @@ public class CrudApplication {
 - crud\src\main\resources\templates\todos.html 만들고 실행
 
 ```
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<div th:each="todo : ${todos}" >
-        <H3 th:text="${todo.getTitle()}"></H3>
-        <a th:href="@{/todos/{id}(id=${todo.getId()} )  }">detail</a>
+
+    <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+
+<div layout:fragment="content">
+    <div>
+        <span>전체 : </span><span th:text = "${totalCount}"></span>
+        <span>미완료 : </span><span th:text = "${activeCount}"></span>
+        <span>완료 : </span><span th:text = "${completedCount}"></span>
     </div>
 
     <table class="table table-striped">
         <thead>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Completed</th>
-            <th>Detail</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Completed</th>
+        <th>Detail</th>
         </thead>
         <tbody>
-            <tr th:each="todo : ${todos}">
-                <td th:text="${todo.id}"></td>
-                <td th:text="${todo.getTitle()}"></td>
-                <td>
-                    <span th:if="${todo.completed}" class="badge bg-success">완료</span>
-                    <span th:unless="${todo.completed}"  class="badge bg-warning">진행중</span>
-                </td>
-                <td>
-                    <a th:href="@{/todos/{id}(id=${todo.id})}" class="btn btn-sm btn-primary">detail</a>
-                </td>
-            </tr>
+        <tr th:each="todo : ${todos}">
+        <td th:text="${todo.id}"></td>
+            <td th:text="${todo.getTitle()}"></td>
+            <td>
+                <span th:if="${todo.completed}" class="badge bg-success">완료</span>
+                <span th:unless="${todo.completed}"  class="badge bg-warning">진행중</span>
+            </td>
+            <td>
+                <a th:href="@{/todos/{id}(id=${todo.id})}" class="btn btn-sm btn-primary">detail</a>
+            </td>
+        </tr>
         </tbody>
     </table>
+
+</div>
+</html>
+```
+
+- Service
+
+```
+    public List<TodoDto> getAllTodos() {
+        List<TodoDto> todoDtoList = new ArrayList<>();
+        todoDtoList =  todoRepository.findAll();
+        return todoDtoList;
+    }
 ```
 
 - Repository
@@ -94,166 +149,6 @@ public class CrudApplication {
 	public List<TodoDto> findAll(){
        return new ArrayList<TodoDto>(storage.values());
    }
-```
-
-## **create 로직 작성**
-
-- Controller
-
-```
-    @GetMapping("/new")
-    public String newTodos(){
-        return "new";
-    }
-
-    @PostMapping()
-    public String create(@RequestParam String title, @RequestParam String content, RedirectAttributes redirectAttributes, Model model){
-        TodoDto todoDto = new TodoDto(null, title, content, false);
-        TodoDto todo = todoRepository.save(todoDto);
-        model.addAttribute("todo", todo);
-        redirectAttributes.addFlashAttribute("message","할 일이 생성되었습니다.");
-//        return "create";
-        return "redirect:/todos";
-    }
-```
-
-- Repository
-
-```
-public TodoDto save(TodoDto todo){
-if (todo.getId() == null) {
-todo.setId(nextId++);
-}
-storage.put(todo.getId(), todo);
-return todo;
-}
-```
-
-- new.html
-
-```
-
-  <!-- <form action="/create"> -->
-  <form action="/todos" method="post">
-        <input type="text" name="title">
-        <input type="submit"><br>
-   </form>
-```
-
-## **read 1 로직 작성**
-
-- Controller
-
-```
-	@GetMapping("/{id}")
-    public String detail(@PathVariable Long id, Model model) {
-        try {
-            TodoDto todo = todoRepository.findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("todo not found!!!"));
-            model.addAttribute("todo", todo);
-            return "detail";
-        } catch (IllegalArgumentException e){
-            return "redirect:/todos";
-        }
-    }
-
-```
-
-- Repository
-
-```
-   public Optional<TodoDto> findById(Long id) {
-       //return storage.get(id);
-       return Optional.ofNullable(storage.get(id));
-   }
-
-```
-
-- detail.html
-
-```
-	<h2 th:text="${todo.title}"></h2>
-    <h4 th:text="${todo.content}"></h4>
-    <h4 th:text="${todo.completed ? '완료' : '미완료' }"></h4>
-    <hr>
-    <a th:href="@{/todos/{id}/update(id=${todo.id})}">update</a>
-    <a th:href="@{/todos/{id}/delete(id=${todo.id})}">delete</a>
-
-```
-
-## **delete 기능 구현**
-
-- Controller
-
-```
-	@GetMapping("/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes, Model model){
-        todoRepository.deleteById(id);
-        redirectAttributes.addFlashAttribute("message", "할일이 삭제되었습니다.");
-        redirectAttributes.addFlashAttribute("status", "delete");
-        return "redirect:/todos";
-    }
-
-```
-
-- Repository
-
-```
-	public void deleteById(Long id) {
-        storage.remove(id);
-    }
-
-```
-
-## **update 기능 구현**
-
-- Controller
-
-```
-	@GetMapping("/{id}/update")
-    public String update(@PathVariable Long id, Model model){
-        try {
-            TodoDto todo = todoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("todo not found!!!"));
-            model.addAttribute("todo", todo);
-            return "update";
-        } catch (IllegalArgumentException e){
-            return "redirect:/todos";
-        }
-    }
-
-    @PostMapping("/{id}/update")
-    public String update(@PathVariable Long id, @RequestParam String title, @RequestParam String content,
-                         @RequestParam(defaultValue = "false") boolean completed,
-                         RedirectAttributes redirectAttributes, Model model){
-        try {
-            TodoDto todo = todoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("todo not found!!!"));
-            todo.setTitle(title);
-            todo.setContent(content);
-            todo.setCompleted(completed);
-
-            todoRepository.save(todo);
-            model.addAttribute("todo", todo);
-            redirectAttributes.addFlashAttribute("message", "할일이 수정되었습니다.");
-            return "redirect:/todos/" + id;
-        }
-        catch (IllegalArgumentException e){
-            redirectAttributes.addFlashAttribute("message", "없는 할일입니다.");
-            return "redirect:/todos";
-        }
-    }
-
-```
-
-- update.html
-
-```
-	<form th:action="@{/todos/{id}/update(id=${todo.id})}"  method="post">
-        <input type="text" name="title" th:value="${todo.title}">
-        <input type="text" name="content" th:value="${todo.content}">
-        <input type="hidden" name="id" th:value="${todo.id}">
-        <input type="checkbox" name="completed" value="true" th:checked="${todo.completed}">
-        <input type="submit"><br>
-    </form>
 ```
 
 ## Thymeleaf Layout Dialect 설치
@@ -269,9 +164,12 @@ return todo;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <div>
+     <div class="container">
+        <div th:if="${message}" th:classappend="${status == 'delete' ? 'alert-danger': 'alert-warning'}" class="alert  alert-dismissible fade show"  role="alert">
+            <span th:text="${message}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <div layout:fragment="content">
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -289,6 +187,212 @@ return todo;
 Bootstrap - Include via CDN : https://getbootstrap.com/
 ````
 
+## **create & update 로직 작성**
+
+- Controller
+
+```
+    @GetMapping("/new")
+    public String newTodos(Model model){
+        model.addAttribute("todo", new TodoDto());
+        return "form";
+    }
+
+    @PostMapping()
+    public String create(@ModelAttribute TodoDto todo, RedirectAttributes redirectAttributes, Model model){
+        try{
+            todoService.createTodo(todo);
+            redirectAttributes.addFlashAttribute("message", "할 일이 생성되었습니다.");
+            return "redirect:/todos";
+        }catch(Exception e){
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
+            return "redirect:/todos/new";
+        }
+
+    }
+
+    @GetMapping("/{id}/update")
+    public String edit(@PathVariable Long id, Model model){
+        try {
+            TodoDto todo = todoService.getTodoById(id);
+            model.addAttribute("todo", todo);
+            return "form";
+        } catch (IllegalArgumentException e){
+            return "redirect:/todos";
+        }
+    }
+
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, @ModelAttribute TodoDto todo, RedirectAttributes redirectAttributes){
+        try {
+            todoService.updateTodoById(id, todo);
+            redirectAttributes.addFlashAttribute("message", "할일이 수정되었습니다.");
+            return "redirect:/todos/" + id;
+        }
+        catch (IllegalArgumentException e){
+            if (e.getMessage().contains("제목")) {
+                redirectAttributes.addFlashAttribute("message", e.getMessage());
+                redirectAttributes.addFlashAttribute("status", "danger");
+                return "redirect:/todos/" + id + "/update";
+            } else {
+                redirectAttributes.addFlashAttribute("message", "없는 할일입니다.");
+                return "redirect:/todos";
+            }
+        }
+    }
+```
+
+- Service
+
+```
+    public TodoDto createTodo(TodoDto todo) {
+        validateTitle(todo.getTitle());
+        return todoRepository.save(todo);
+    }
+
+    private void validateTitle(String title) {
+        if (title == null || title.isEmpty()) {
+            throw new IllegalArgumentException("제목은 필수입니다.");
+        }
+        if (title.length() > 50){
+            throw new IllegalArgumentException("제목은 50자 미만입니다.");
+        }
+    }
+
+    public TodoDto updateTodoById(Long id, TodoDto newTodo) {
+        validateTitle(newTodo.getTitle());
+        TodoDto originTodo = getTodoById(id);
+        originTodo.setTitle(newTodo.getTitle());
+        originTodo.setContent(newTodo.getContent());
+        originTodo.setCompleted(newTodo.isCompleted());
+
+        return todoRepository.save(originTodo);
+    }
+```
+
+- Repository
+
+```
+    public TodoDto save(TodoDto todo){
+        if (todo.getId() == null) {
+        todo.setId(nextId++);
+        }
+        storage.put(todo.getId(), todo);
+        return todo;
+    }
+```
+
+- form.html
+
+```
+    <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+    <div layout:fragment="content">
+        <h1 th:text="${todo.id == null ? 'new': 'update' }"></h1>
+        <form th:action="${todo.id == null} ? '/todos': @{/todos/{id}/update(id=${todo.id})}"  method="post" th:object="${todo}">
+            <label for="title" class="form-label">Title</label>
+            <input id="title" class="form-control" th:field="*{title}">
+            <label for="content" class="form-label">Content</label>
+            <input id="content" class="form-control" th:field="*{content}">
+            <input th:if="${todo.id != null}" type="checkbox" id="completed" class="form-check-input" th:field="*{completed}">
+            <br>
+            <input type="submit"  class="btn btn-primary">
+        </form>
+    </div>
+    </html>
+```
+
+## **read 1 로직 작성**
+
+- Controller
+
+```
+	@GetMapping("/{id}")
+    public String detail(@PathVariable Long id, Model model) {
+        try {
+            TodoDto todo = todoService.getTodoById(id);
+            model.addAttribute("todo", todo);
+            return "detail";
+        } catch (IllegalArgumentException e){
+            return "redirect:/todos";
+        }
+    }
+
+```
+
+- Service
+
+```
+    public TodoDto getTodoById(Long id) {
+        return  todoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("todo not found!!!"));
+    }
+```
+
+- Repository
+
+```
+   public Optional<TodoDto> findById(Long id) {
+       return Optional.ofNullable(storage.get(id));
+   }
+
+```
+
+- detail.html
+
+```
+	<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}">
+    <div layout:fragment="content">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${todo.title}"></h5>
+                <p class="card-text" th:text="${todo.content}"></p>
+                <p>
+                    완료여부 :
+                    <span th:if="${todo.completed}" class="badge bg-success">완료</span>
+                    <span th:unless="${todo.completed}"  class="badge bg-warning">진행중</span>
+                </p>
+            </div>
+        </div>
+        <a th:href="@{/todos/{id}/toggle(id=${todo.id})}" class="btn btn-primary">toggle</a>
+        <a th:href="@{/todos/{id}/update(id=${todo.id})}" class="btn btn-warning">update</a>
+        <a th:href="@{/todos/{id}/delete(id=${todo.id})}" class="btn btn-danger">delete</a>
+    </div>
+    </html>
+```
+
+## **delete 기능 구현**
+
+- Controller
+
+```
+	@GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes){
+        todoService.deleteTodoById(id);
+        redirectAttributes.addFlashAttribute("message", "할일이 삭제되었습니다.");
+        redirectAttributes.addFlashAttribute("status", "delete");
+        return "redirect:/todos";
+    }
+
+```
+
+- Service
+
+```
+    public void deleteTodoById(Long id) {
+        getTodoById(id);
+        todoRepository.deleteById(id);
+    }
+```
+
+- Repository
+
+```
+	public void deleteById(Long id) {
+        storage.remove(id);
+    }
+
+```
+
 ## 검색
 
 - Controller
@@ -296,9 +400,17 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
 ```
     @GetMapping("/search")
     public String search(@RequestParam String keyword,Model model){
-        List<TodoDto> todoDtos = todoRepository.findByTitleContaining(keyword);
+        List<TodoDto> todoDtos = todoService.searchTodos(keyword);
         model.addAttribute("todos", todoDtos);
         return "todos";
+    }
+```
+
+- Service
+
+```
+    public List<TodoDto> searchTodos(String keyword) {
+        return todoRepository.findByTitleContaining(keyword);
     }
 ```
 
@@ -328,9 +440,18 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
 ```
     @GetMapping("/active")
     public String active(Model model){
-        List<TodoDto> todos = todoRepository.findBycompleted(false);
+        List<TodoDto> todos = todoService.getTodosByCompleted(false);
         model.addAttribute("todos", todos);
+        model.addAttribute("totalCount", todoService.getTotalCount());
         return "todos";
+    }
+```
+
+- Service
+
+```
+    public List<TodoDto> getTodosByCompleted(boolean completed) {
+        return todoRepository.findBycompleted(completed);
     }
 ```
 
@@ -352,9 +473,7 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
     @GetMapping("/{id}/toggle")
     public String toggle(@PathVariable Long id, Model model){
         try {
-            TodoDto todo = todoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("todo not found!!!"));
-            todo.setCompleted(!todo.isCompleted());
-            todoRepository.save(todo);
+            todoService.toggleCompleted(id);
             return "redirect:/todos/" + id;
         } catch (IllegalArgumentException e){
             return "redirect:/todos";
@@ -362,10 +481,20 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
     }
 ```
 
+- Service
+
+```
+    public TodoDto toggleCompleted(Long id) {
+        TodoDto todo = getTodoById(id);
+        todo.setCompleted(!todo.isCompleted());
+        return todoRepository.save(todo);
+    }
+```
+
 - detail.html
 
 ```
-    <a th:href="@{/todos/{id}/toggle(id=${todo.id})}" class="btn btn-primary">toggle</a>
+       <a th:href="@{/todos/{id}/toggle(id=${todo.id})}" class="btn btn-primary">toggle</a>
 ```
 
 ## alert
@@ -382,4 +511,25 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
         <span th:text="${message}"></span>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+```
+
+## deleteCompleted
+
+- Controller
+
+```
+@GetMapping("/delete-completed")
+    public String deleteCompleted(RedirectAttributes redirectAttributes){
+        todoService.deleteCompletedTodos();
+        redirectAttributes.addFlashAttribute("message", "완료된 할일이 삭제되었습니다.");
+        return "redirect:/todos";
+    }
+```
+
+- Service
+
+```
+    public void deleteCompletedTodos() {
+        todoRepository.deleteCompleted();
+    }
 ```

@@ -36,6 +36,8 @@ ERD https://draw.io/ - https://app.diagrams.net/
 최신트랜드 - https://news.hada.io/
 Spring Boot - https://spring.io/projects/spring-boot
 openAI status - https://status.openai.com/
+코드트리 - https://www.coeic.ai/invite/QWmhVzcRUok0TrB0eNKjNA ssukyoung14@gmail.com/Qlalfqjsgh1@	sukyoung
+https://www.codetree.ai/ko/trails/complete/curated-cards/nl-pre-output-basics/introduction
 =======
 Thymeleaf Layout Dialect 설치
 - build.gradle 파일 dependencies 안에  // implementation 'GroupId:ArtifactId'
@@ -67,8 +69,8 @@ Bootstrap - Include via CDN : https://getbootstrap.com/
 =======
 # H2 Database DB 셋팅
 - build.gradle 파일 dependencies 에 스타터 추가
-spring data jpa
-h2 Database
+Spring Data JPA
+H2 Database
 \springboot\todoapp\src\main\resources\application.properties 파일에
 ```
 spring.h2.console.enabled=true
@@ -81,11 +83,13 @@ spring.datasource.password=
 
 spring.jpa.hibernate.ddl-auto=create
 spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
 
 server.servlet.encoding.charset=UTF-8
 server.servlet.encoding.enabled=true
 server.servlet.encoding.force=true
 ```
+- 재빌드
 - http://localhost:8080/h2-console 
  JDBC URL: jdbc:h2:mem:testdb 변경 후
  connect 버튼 클릭
